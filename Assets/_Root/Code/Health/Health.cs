@@ -8,10 +8,10 @@ namespace _Root.Code.Health
         public float MaxHealth { get; }
         public ReactiveProperty<float> CurrentHealth { get; } = new ReactiveProperty<float>();
 
-        public Health(float maxHealth, float currentHealth)
+        public Health(float maxHealth)
         {
             MaxHealth = maxHealth;
-            CurrentHealth.Value = currentHealth;
+            CurrentHealth.Value = SaveManager.SaveManager.Instance.LoadHealth();
         }
 
         public void MinusHealth(float value)

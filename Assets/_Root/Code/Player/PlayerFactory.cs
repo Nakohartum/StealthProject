@@ -1,5 +1,7 @@
 ﻿using System;
 using _Root.Code.Health;
+using _Root.Code.Input;
+using _Root.Code.MoveFeature;
 using UnityEngine;
 using Zenject;
 
@@ -21,9 +23,14 @@ namespace GameOne.Player
         public PlayerView Create()
         {
             var playerGo = _container.InstantiatePrefab(_playerSo.PlayerPrefab, _parent);
+            playerGo.transform.SetParent(_parent);
             var playerView = playerGo.GetComponent<PlayerView>();
-            var health = new Health(100f, 100f);
-            var playerModel = new PlayerModel(5f, health);
+            var health = new Health(_playerSo.HealthSO.MaxHeatlh);
+            var playerModel = new PlayerModel(_playerSo.PlayerSpeed, health);
+            var moveController = new PhysicsMovement(playerView.Rigidbody, playerModel.Speed);
+            var inputController = _container.Resolve<InputController>();
+            var controller = new PlayerController(playerView, inputController, playerModel, moveController);
+            _container.BindInstance(controller);
             return playerView;
         }
     }

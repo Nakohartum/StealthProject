@@ -32,7 +32,7 @@ namespace _Root.Code.Input
             if (_inputActions.PlayerMovement.enabled)
             {
                 var movementVector = _inputActions.PlayerMovement.Move.ReadValue<Vector2>();
-                OnMove(movementVector * Time.deltaTime);
+                OnMove(movementVector * _deltaTime);
             }
         }
     }

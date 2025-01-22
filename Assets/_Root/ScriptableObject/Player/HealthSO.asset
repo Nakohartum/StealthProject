@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 878921aee4674e31a6a80b227fd258fe, type: 3}
-  m_Name: PlayerSO
+  m_Script: {fileID: 11500000, guid: 6c93e048b3244b6d9942eeeea48929d1, type: 3}
+  m_Name: HealthSO
   m_EditorClassIdentifier: 
-  <PlayerPrefab>k__BackingField: {fileID: 2990497746634491425, guid: 9bb9e265d90c8f84eac833fdfc153456, type: 3}
+  <MaxHeatlh>k__BackingField: 100

@@ -19,6 +19,7 @@ namespace _Root.Code.Input
         {
             _inputActions = inputActions;
             EnablePlayerInput();
+            DisableAnyKey();
         }
 
         public void EnablePlayerInput()
@@ -28,14 +29,7 @@ namespace _Root.Code.Input
             {
                 _inputActions.PlayerMovement.Interact.performed += InteractOnperformed;
             }
-            _inputActions.PlayerMovement.AnyKey.Disable();
-            _inputActions.PlayerMovement.AnyKey.performed += AnyKeyEnetered;
-            
-        }
-
-        private void AnyKeyEnetered(InputAction.CallbackContext obj)
-        {
-            OnAnyKeyEntered();
+            EnableAnyKey();
         }
 
         public void Tick()
@@ -67,6 +61,11 @@ namespace _Root.Code.Input
         public void EnableAnyKey()
         {
             _inputActions.PlayerMovement.AnyKey.Enable();
+        }
+
+        public bool AnyKeyPressed()
+        {
+            return _inputActions.PlayerMovement.AnyKey.triggered;
         }
 
         public void DisablePlayerMove()

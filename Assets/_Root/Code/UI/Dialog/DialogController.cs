@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using _Root.Code.Input;
 using UnityEngine;
@@ -10,14 +11,13 @@ namespace _Root.Code.UI
     public class DialogController
     {
         private DialogView _dialogView;
-        private TaskCompletionSource<bool> _inputAnyKeyTask;
         private InputController _inputController;
+
         [Inject]
         private DialogController(DialogView dialogView, InputController inputController)
         {
             _dialogView = dialogView;
             _inputController = inputController;
-            _inputController.OnAnyKeyEntered += OnAnyKeyEntered;
             _instance = this;
             SetActive(false);
         }
@@ -32,30 +32,41 @@ namespace _Root.Code.UI
             }
         }
         
-        public async void  SetText(List<EditorHelpers.KeyValuePair<string, Sprite>> texts)
+        public async Task  SetText(List<EditorHelpers.KeyValuePair<string, Sprite>> texts)
         {
-            _inputController.EnableAnyKey();
-            _inputController.DisablePlayerMove();
-            if (_dialogView.gameObject.activeSelf != true)
+            if (texts.Count > 0)
             {
-                _dialogView.SetActive(true);
-            }
-            for (int i = 0; i < texts.Count; i++)
-            {
-                SetText(texts[i].Key);
-                SetImage(texts[i].Value);
-                await WaitForAnyKey();
-            }
-            SetActive(false);
+                _inputController.EnableAnyKey();
+                _inputController.DisablePlayerMove();
+                if (_dialogView.gameObject.activeSelf != true)
+                {
+                    _dialogView.SetActive(true);
+                }
+                for (int i = 0; i < texts.Count; i++)
+                {
+                    SetText(texts[i].Key);
+                    SetImage(texts[i].Value);
+                    await WaitForAnyKey();
+                }
+                SetActive(false);
             
-            _inputController.DisableAnyKey();
-            _inputController.EnablePlayerMove();
+                _inputController.DisableAnyKey();
+                _inputController.EnablePlayerMove();
+            }
         }
 
-        private Task WaitForAnyKey()
+        private async Task WaitForAnyKey()
         {
-            _inputAnyKeyTask = new TaskCompletionSource<bool>();
-            return _inputAnyKeyTask.Task;
+            _inputController.DisableAnyKey();
+            await Task.Yield();
+            _inputController.EnableAnyKey();
+            while (!_inputController.AnyKeyPressed())
+            {
+                await Task.Yield();
+            }
+            _inputController.DisableAnyKey();
+            await Task.Yield();
+            _inputController.EnableAnyKey();
         }
 
         private void SetText(string text)
@@ -73,9 +84,5 @@ namespace _Root.Code.UI
             _dialogView.SetActive(active);
         }
         
-        private void OnAnyKeyEntered()
-        {
-            _inputAnyKeyTask.TrySetResult(true);
-        }
     }
 }

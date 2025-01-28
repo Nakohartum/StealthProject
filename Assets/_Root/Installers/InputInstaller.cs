@@ -1,6 +1,7 @@
 using _Root.Code.Input;
 using GameOne.Player;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 public class InputInstaller : MonoInstaller

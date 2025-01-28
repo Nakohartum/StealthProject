@@ -4,6 +4,11 @@
     {
         private static SaveManager _instance;
 
+        private SaveManager()
+        {
+            
+        }
+
         public static SaveManager Instance
         {
             get

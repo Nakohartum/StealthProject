@@ -53,6 +53,16 @@ namespace _Root.Code.Input
             }
         }
 
+        public void DisableInteractionKey()
+        {
+            _inputActions.PlayerMovement.Interact.Disable();
+        }
+        
+        public void EnableInteractionKey()
+        {
+            _inputActions.PlayerMovement.Interact.Enable();
+        }
+
         public void DisableAnyKey()
         {
             _inputActions.PlayerMovement.AnyKey.Disable();

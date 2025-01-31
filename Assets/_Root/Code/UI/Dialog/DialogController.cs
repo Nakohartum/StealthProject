@@ -38,6 +38,7 @@ namespace _Root.Code.UI
             {
                 _inputController.EnableAnyKey();
                 _inputController.DisablePlayerMove();
+                _inputController.DisableInteractionKey();
                 if (_dialogView.gameObject.activeSelf != true)
                 {
                     _dialogView.SetActive(true);
@@ -52,6 +53,7 @@ namespace _Root.Code.UI
             
                 _inputController.DisableAnyKey();
                 _inputController.EnablePlayerMove();
+                _inputController.EnableInteractionKey();
             }
         }
 

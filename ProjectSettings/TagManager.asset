@@ -38,6 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Shadows
+    uniqueID: 1715919627
+    locked: 0
+  - name: Background
+    uniqueID: 2467186455
+    locked: 0
+  - name: Outline
+    uniqueID: 2751982115
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Environment
+    uniqueID: 3038193761
+    locked: 0
+  - name: Foreground
+    uniqueID: 3138327377
     locked: 0

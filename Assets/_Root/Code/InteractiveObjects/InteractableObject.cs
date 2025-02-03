@@ -10,8 +10,7 @@ namespace _Root.Code.InteractiveObjects
 {
     public class InteractableObject : MonoBehaviour, IInteractable
     {
-        [SerializeField] private Color _interactableColor;
-        [SerializeField] private SpriteRenderer _outlineObject;
+        [SerializeField] private OutlineFx.OutlineFx _outlineObject;
         [SerializeField] private Animator _animator;
         [SerializeField] private DialogSO _dialogSo;
         [SerializeField] private List<EditorHelpers.KeyValuePair<bool, AudioClip>> _audioClips;
@@ -22,10 +21,9 @@ namespace _Root.Code.InteractiveObjects
         private bool _isObjectStartedInteraction;
         private Coroutine _soundCoroutine;
 
-        private void Awake()
+        private void Start()
         {
-            _outlineObject.color = _interactableColor;
-            _outlineObject.gameObject.SetActive(false);
+            _outlineObject.enabled = false;
             _hasTextToShow = _dialogSo != null && _dialogSo.TextToShow.Count > 0;
             _hasAudio = _interactSound != null && _audioClips.Count > 0;
             _hasAnimationToShow = _animator != null;
@@ -36,13 +34,13 @@ namespace _Root.Code.InteractiveObjects
         public void SetInteractionStyleOn()
         {
             InteractionToggled = true;
-            _outlineObject.gameObject.SetActive(true);
+            _outlineObject.enabled = true;
         }
 
         public void SetInteractionStyleOff()
         {
             InteractionToggled = false;
-            _outlineObject.gameObject.SetActive(false);
+            _outlineObject.enabled = false;
         }
 
         public void Interact()

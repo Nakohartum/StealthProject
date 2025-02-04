@@ -12,18 +12,30 @@ namespace GameOne.Player
         private PlayerModel _playerModel;
         private InputController _inputController;
         private IMovable _moveController;
+        private int _isWalkingHash;
 
-        public PlayerController(PlayerView playerView, InputController inputController, PlayerModel playerModel, IMovable moveController)
+        public PlayerController(PlayerView playerView, InputController inputController, 
+            PlayerModel playerModel, IMovable moveController)
         {
             _playerView = playerView;
+            _playerModel = playerModel;
             _inputController = inputController;
             _moveController = moveController;
+            _isWalkingHash = Animator.StringToHash("IsWalking");
             _inputController.OnMove += MovePlayer;
+            _inputController.OnMove += RotateTowardsMovingSide;
         }
 
         private void MovePlayer(Vector2 obj)
         {
+            _playerView.Animator.SetBool(_isWalkingHash, obj != Vector2.zero);
             _moveController.Move(obj);
+        }
+
+        private void RotateTowardsMovingSide(Vector2 obj)
+        {
+            float angle = Vector2.SignedAngle(_playerView.transform.up, obj);
+            _playerView.transform.Rotate(0,0,angle);
         }
     }
 }

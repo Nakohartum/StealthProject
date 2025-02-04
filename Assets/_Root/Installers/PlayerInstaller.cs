@@ -11,6 +11,7 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private CinemachineTargetGroup _machineTargetGroup;
     public override void InstallBindings()
     {
+        SignalBusInstaller.Install(Container);
         Container.Bind<IFactory<PlayerView>>().To<PlayerFactory>().AsSingle().WithArguments(_playerSO, _parent);
         Container.Bind<CinemachineTargetGroup>().FromInstance(_machineTargetGroup).AsSingle();
     }

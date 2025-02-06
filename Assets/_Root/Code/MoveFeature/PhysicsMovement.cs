@@ -27,8 +27,8 @@ namespace _Root.Code.MoveFeature
 
         private void PerformMove(Vector2 movement)
         {
-            var speed = _rigidbody.mass * _speed;
-            _rigidbody.velocity = movement * speed;
+            Vector2 oldPosition = _rigidbody.transform.position;
+            _rigidbody.MovePosition(oldPosition+(movement*_speed));
         }
 
         private void StopMovement()

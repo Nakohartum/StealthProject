@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Root.Code.GlobalManagers
 {
     public class GlobalMusicManager : MonoBehaviour
     {
-        [SerializeField] private AudioClip[] _musicClips;
+        [SerializeField] private List<EditorHelpers.KeyValuePair<string, AudioClip>> _musicClips;
         [SerializeField] private AudioSource _audioSource;
         
         public static GlobalMusicManager Instance;
@@ -18,7 +19,7 @@ namespace _Root.Code.GlobalManagers
             _audioSource.Play();
         }
 
-        public void SetAudioClips(AudioClip[] clips)
+        public void SetAudioClips(List<EditorHelpers.KeyValuePair<string, AudioClip>> clips)
         {
             _musicClips = clips;
         }
@@ -26,7 +27,7 @@ namespace _Root.Code.GlobalManagers
         public void ChangeMusicRandomly()
         {
             _audioSource.Stop();
-            _audioSource.clip = _musicClips[UnityEngine.Random.Range(0, _musicClips.Length)];
+            _audioSource.clip = _musicClips[UnityEngine.Random.Range(0, _musicClips.Count)].Value;
             _audioSource.Play();
         }
         

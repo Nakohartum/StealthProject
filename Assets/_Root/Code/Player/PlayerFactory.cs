@@ -38,7 +38,7 @@ namespace GameOne.Player
             _container.BindInstance(playerView);
             targetGroup.AddMember(playerGo.transform, 1f, 5f);
             var health = new Health(_playerSo.HealthSO.MaxHeatlh);
-            var playerModel = new PlayerModel(_playerSo.PlayerSpeed, health);
+            var playerModel = new PlayerModel(_playerSo.PlayerSpeed, health, _playerSo.StepSounds);
             var moveController = new PhysicsMovement(playerView.Rigidbody, playerModel.Speed);
             var inputController = _container.Resolve<InputController>();
             var controller = new PlayerController(playerView, inputController, playerModel, moveController);

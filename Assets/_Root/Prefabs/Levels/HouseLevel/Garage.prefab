@@ -207,11 +207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7194111306190863716, guid: e692b7eaa57a8ab4c8181ea8d5009fe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.649
+      value: -2.631
       objectReference: {fileID: 0}
     - target: {fileID: 7194111306190863716, guid: e692b7eaa57a8ab4c8181ea8d5009fe7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.818
+      value: 3.773
       objectReference: {fileID: 0}
     - target: {fileID: 7194111306190863716, guid: e692b7eaa57a8ab4c8181ea8d5009fe7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -271,11 +271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8902878433505231371, guid: e692b7eaa57a8ab4c8181ea8d5009fe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.058
+      value: -0.045
       objectReference: {fileID: 0}
     - target: {fileID: 8902878433505231371, guid: e692b7eaa57a8ab4c8181ea8d5009fe7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.001
+      value: -0.016
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -365,15 +365,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912487413876227468, guid: d38c424c706379e44b49ef0f134508f0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.008805
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8912487413876227468, guid: d38c424c706379e44b49ef0f134508f0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.008805
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8912487413876227468, guid: d38c424c706379e44b49ef0f134508f0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0619
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8912487413876227468, guid: d38c424c706379e44b49ef0f134508f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -527,7 +527,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8477710137529648827, guid: 5069cf208d8dae54e8a3a57c29ff6dde, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

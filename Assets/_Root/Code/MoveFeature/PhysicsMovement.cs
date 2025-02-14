@@ -19,21 +19,14 @@ namespace _Root.Code.MoveFeature
             {
                 PerformMove(movement);
             }
-            else
-            {
-                StopMovement();
-            }
         }
 
         private void PerformMove(Vector2 movement)
         {
             Vector2 oldPosition = _rigidbody.transform.position;
-            _rigidbody.MovePosition(oldPosition+(movement*_speed));
-        }
-
-        private void StopMovement()
-        {
-            _rigidbody.velocity = Vector2.zero;
+            var currentPosition = movement * _speed;
+            currentPosition = Vector2.MoveTowards(currentPosition, Vector2.zero, 0);
+            _rigidbody.MovePosition(oldPosition+currentPosition);
         }
     }
 }

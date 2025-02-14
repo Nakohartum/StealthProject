@@ -20,6 +20,8 @@ namespace _Root.Code.InteractiveObjects
         private bool _hasAnimationToShow;
         private bool _isObjectStartedInteraction;
         private Coroutine _soundCoroutine;
+        public event Action OnInteractionDone = () => { };
+        public bool InteractionToggled { get; private set; }
 
         private void Start()
         {
@@ -29,7 +31,7 @@ namespace _Root.Code.InteractiveObjects
             _hasAnimationToShow = _animator != null;
         }
 
-        public bool InteractionToggled { get; private set; }
+        
 
         public void SetInteractionStyleOn()
         {
@@ -113,6 +115,9 @@ namespace _Root.Code.InteractiveObjects
             _interactSound.Play();
         }
 
-        public event Action OnInteractionDone = () => { };
+        private void OnDestroy()
+        {
+            OnInteractionDone = null;
+        }
     }
 }

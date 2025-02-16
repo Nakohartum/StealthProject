@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _outlineObject: {fileID: 1170607032307263311}
   _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
+  _dialogSo: {fileID: 11400000, guid: 702183e1745fefa4681be0d43dc33812, type: 2}
   _audioClips: []
   _interactSound: {fileID: 0}
 --- !u!1 &4379468209663406106

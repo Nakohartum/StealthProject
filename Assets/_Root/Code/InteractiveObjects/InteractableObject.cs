@@ -22,6 +22,7 @@ namespace _Root.Code.InteractiveObjects
         private Coroutine _soundCoroutine;
         public event Action OnInteractionDone = () => { };
         public bool InteractionToggled { get; private set; }
+        
 
         private void Start()
         {
@@ -63,7 +64,10 @@ namespace _Root.Code.InteractiveObjects
                 ToggleState();
                 if (_isObjectStartedInteraction)
                 {
-                    PlaySounds(_audioClips[0]);
+                    if (_audioClips[0].Value != null)
+                    {
+                        PlaySounds(_audioClips[0]);
+                    }
                     if (_audioClips[1].Value != null)
                     {
                         PlaySounds(_audioClips[1]);
@@ -72,7 +76,11 @@ namespace _Root.Code.InteractiveObjects
                 }
                 else
                 {
-                    PlaySounds(_audioClips[2]);
+                    _interactSound.Stop();
+                    if (_audioClips[2].Value != null)
+                    {
+                        PlaySounds(_audioClips[2]);
+                    }
                 }
             }
 
@@ -93,7 +101,7 @@ namespace _Root.Code.InteractiveObjects
                     StopCoroutine(_soundCoroutine);
                     
                 }
-                StartLoopingSoundAfterDelay(audioClip.Value, _audioClips[0].Value.length);
+                StartLoopingSoundAfterDelay(audioClip.Value, _audioClips[0].Value == null? 0 : _audioClips[0].Value.length);
             }
             else
             {

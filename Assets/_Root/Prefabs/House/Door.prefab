@@ -92,11 +92,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableColor: {r: 0, g: 0, b: 0, a: 0}
-  _outlineObject: {fileID: 0}
+  _outlineObject: {fileID: 3750508247723562111}
   _animator: {fileID: 0}
   _dialogSo: {fileID: 0}
-  _audioClips: []
+  _audioClips:
+  - Key: 0
+    Value: {fileID: 0}
+  - Key: 0
+    Value: {fileID: 8300000, guid: 174d433a54ad71e4e8cb5c03263a7d73, type: 3}
+  - Key: 0
+    Value: {fileID: 0}
   _interactSound: {fileID: -8838740692135341331}
 --- !u!82 &-8838740692135341331
 AudioSource:
@@ -204,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3768533444090933843}
   - component: {fileID: 3103995291789241516}
+  - component: {fileID: 3750508247723562111}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -278,3 +284,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3750508247723562111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184799460740786235}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4218d78ef2d54d0898b7514e121a781f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _color: {r: 1, g: 0, b: 0, a: 1}

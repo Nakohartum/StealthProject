@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6980191118123925328}
   - component: {fileID: 1563129278763344523}
-  - component: {fileID: 3324039677751891724}
+  - component: {fileID: 7956388303225794866}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3324039677751891724
+--- !u!114 &7956388303225794866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,14 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5242725893151959542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
+  m_Script: {fileID: 11500000, guid: 4218d78ef2d54d0898b7514e121a781f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineObject: {fileID: 0}
-  _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
-  _audioClips: []
-  _interactSound: {fileID: 0}
+  _color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8936797563723301157
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1638859089842100486}
   - component: {fileID: 5615866648891538166}
+  - component: {fileID: 3321332577016376045}
   m_Layer: 0
   m_Name: ShelvesInOffice
   m_TagString: Untagged
@@ -180,3 +177,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.988083, y: 1.1331886}
   m_EdgeRadius: 0
+--- !u!114 &3321332577016376045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936797563723301157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineObject: {fileID: 7956388303225794866}
+  _animator: {fileID: 0}
+  _dialogSo: {fileID: 11400000, guid: 3bb09c855f4e3ab4496e7503a1669fcf, type: 2}
+  _audioClips: []
+  _interactSound: {fileID: 0}

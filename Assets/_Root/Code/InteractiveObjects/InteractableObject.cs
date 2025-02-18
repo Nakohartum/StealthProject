@@ -20,7 +20,6 @@ namespace _Root.Code.InteractiveObjects
         private bool _hasAnimationToShow;
         private bool _isObjectStartedInteraction;
         private Coroutine _soundCoroutine;
-        public event Action OnInteractionDone = () => { };
         public bool InteractionToggled { get; private set; }
         
 
@@ -36,8 +35,11 @@ namespace _Root.Code.InteractiveObjects
 
         public void SetInteractionStyleOn()
         {
-            InteractionToggled = true;
-            _outlineObject.enabled = true;
+            if (this.enabled)
+            {
+                InteractionToggled = true;
+                _outlineObject.enabled = true;
+            }
         }
 
         public void SetInteractionStyleOff()
@@ -48,43 +50,50 @@ namespace _Root.Code.InteractiveObjects
 
         public void Interact()
         {
+            ToggleState();
+            if (_hasAudio)
+            {
+                PlayAudio();
+            }
+
             if (_hasAnimationToShow)
             {
-                //TODO: play animation
-                Debug.Log("Animation played");
+                PlayAnimation();
             }
 
             if (_hasTextToShow)
             {
                 DialogController.Instance.SetText(_dialogSo.TextToShow);
             }
+        }
 
-            if (_hasAudio)
+        private void PlayAnimation()
+        {
+            
+        }
+
+        private void PlayAudio()
+        {
+            if (_audioClips.Count == 3)
             {
-                ToggleState();
                 if (_isObjectStartedInteraction)
                 {
                     if (_audioClips[0].Value != null)
                     {
                         PlaySounds(_audioClips[0]);
                     }
-                    if (_audioClips[1].Value != null)
-                    {
-                        PlaySounds(_audioClips[1]);
-                    }
-                    
+                    PlaySounds(_audioClips[1]);
                 }
                 else
                 {
-                    _interactSound.Stop();
-                    if (_audioClips[2].Value != null)
-                    {
-                        PlaySounds(_audioClips[2]);
-                    }
+                    
+                    PlaySounds(_audioClips[2]);
                 }
             }
-
-            OnInteractionDone();
+            else if (_audioClips.Count == 1)
+            {
+                PlaySounds(_audioClips[0]);
+            }
         }
 
         private void ToggleState()
@@ -106,7 +115,10 @@ namespace _Root.Code.InteractiveObjects
             else
             {
                 _interactSound.Stop();
-                _interactSound.PlayOneShot(audioClip.Value);
+                if (audioClip.Value != null)
+                {
+                    _interactSound.PlayOneShot(audioClip.Value);
+                }
             }
         }
 
@@ -121,11 +133,6 @@ namespace _Root.Code.InteractiveObjects
             _interactSound.loop = true;
             _interactSound.clip = audioClipValue;
             _interactSound.Play();
-        }
-
-        private void OnDestroy()
-        {
-            OnInteractionDone = null;
         }
     }
 }

@@ -10,6 +10,5 @@ namespace _Root.Code.InteractiveObjects
         void SetInteractionStyleOn();
         void SetInteractionStyleOff();
         void Interact();
-        event Action OnInteractionDone;
     }
 }

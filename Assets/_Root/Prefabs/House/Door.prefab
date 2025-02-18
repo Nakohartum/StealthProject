@@ -97,11 +97,7 @@ MonoBehaviour:
   _dialogSo: {fileID: 0}
   _audioClips:
   - Key: 0
-    Value: {fileID: 0}
-  - Key: 0
     Value: {fileID: 8300000, guid: 174d433a54ad71e4e8cb5c03263a7d73, type: 3}
-  - Key: 0
-    Value: {fileID: 0}
   _interactSound: {fileID: -8838740692135341331}
 --- !u!82 &-8838740692135341331
 AudioSource:

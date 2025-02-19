@@ -43,7 +43,7 @@ namespace GameOne.Player
             var inputController = _container.Resolve<InputController>();
             var controller = new PlayerController(playerView, inputController, playerModel, moveController);
             _container.BindInstance(controller);
-            var interactiveChecker = new InteractiveObjectsChecker(playerView.Rigidbody, 3f, inputController);
+            var interactiveChecker = new InteractiveObjectsChecker(playerView.Rigidbody, _playerSo.CheckingRadius, inputController);
             var tickableManager = _container.Resolve<TickableManager>();
             tickableManager.Add(interactiveChecker);
             return playerView;

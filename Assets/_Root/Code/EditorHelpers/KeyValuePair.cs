@@ -3,7 +3,7 @@
 namespace _Root.Code.EditorHelpers
 {
     [Serializable]
-    public class KeyValuePair<TKey, TValue>
+    public struct KeyValuePair<TKey, TValue>
     {
         public TKey Key;
         public TValue Value;

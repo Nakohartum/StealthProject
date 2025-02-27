@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Root.Code.Input;
 using _Root.Code.InteractiveObjects;
 using UnityEngine;
@@ -6,7 +7,7 @@ using Zenject;
 
 namespace GameOne.Player
 {
-    public class InteractiveObjectsChecker : ITickable
+    public class InteractiveObjectsChecker : ITickable, IDisposable
     {
         private IInteractable _closestInteractable;
         private IInteractable _previousInteractable;
@@ -92,6 +93,11 @@ namespace GameOne.Player
                 }
             }
             return interactables;
+        }
+
+        public void Dispose()
+        {
+            _inputController.OnInteract -= TryToInteract;
         }
     }
 }

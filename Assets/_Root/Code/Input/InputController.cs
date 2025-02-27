@@ -75,7 +75,7 @@ namespace _Root.Code.Input
 
         public bool AnyKeyPressed()
         {
-            return _inputActions.PlayerMovement.AnyKey.triggered;
+            return _inputActions.PlayerMovement.AnyKey.IsPressed();
         }
 
         public void DisablePlayerMove()

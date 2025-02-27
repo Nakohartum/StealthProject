@@ -51,6 +51,7 @@ namespace _Root.Code.InteractiveObjects
         public void Interact()
         {
             ToggleState();
+            _interactSound.Stop();
             if (_hasAudio)
             {
                 PlayAudio();

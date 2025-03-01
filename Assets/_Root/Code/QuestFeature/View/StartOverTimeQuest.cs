@@ -10,7 +10,7 @@ namespace _Root.Code.QuestFeature.View
     public class StartOverTimeQuest : MonoBehaviour
     {
         [field: SerializeField] public QuestData QuestData { get; private set; }
-        [field: SerializeField] public EventInvoker EventInvoker { get; private set; }
+        [field: SerializeField] public EventInvoker EventInvoker { get; private set; } = null;
 
         private void Start()
         {
@@ -21,7 +21,7 @@ namespace _Root.Code.QuestFeature.View
         {
             yield return new WaitForSeconds(QuestData.StartTime);
             QuestManager.Instance.StartQuest(QuestData);
-            EventInvoker.InvokeEvent();
+            EventInvoker?.InvokeEvent();
         }
     }
 }

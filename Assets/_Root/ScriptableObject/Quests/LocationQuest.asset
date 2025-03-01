@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LocationQuest
   m_EditorClassIdentifier: 
   QuestName: GoToBedRoom
+  StartTime: 10
   QuestParts:
   - QuestType: 0
     Description: Go to bedroom

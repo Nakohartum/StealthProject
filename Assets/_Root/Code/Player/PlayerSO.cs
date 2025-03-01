@@ -9,6 +9,7 @@ namespace GameOne.Player
         [field: SerializeField] public PlayerView PlayerPrefab { get; private set; }
         [field: SerializeField] public float PlayerSpeed { get; private set; }
         [field: SerializeField] public HealthSO HealthSO { get; private set; }
+        [field: SerializeField] public float CheckingRadius { get; private set; }
         [field: SerializeField] public AudioClip[] StepSounds { get; private set; }
     }
 }

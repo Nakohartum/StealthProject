@@ -12,7 +12,7 @@ namespace _Root.Code.GlobalManagers
         [Inject] private LevelSO[] _levels;
         [Inject] private Transform _levelsRoot;
         public LevelSO CurrentLevel {get; private set;}
-        public GameObject CurrentLevelObject {get; private set;}
+        public Level CurrentLevelObject {get; private set;}
 
         [Inject]
         public void Initialize(SignalBus signalBus)
@@ -27,7 +27,7 @@ namespace _Root.Code.GlobalManagers
 
         public void DestroyLevel()
         {
-            Object.Destroy(CurrentLevelObject);
+            Object.Destroy(CurrentLevelObject.gameObject);
         }
 
         public void InitLevel(string levelName)

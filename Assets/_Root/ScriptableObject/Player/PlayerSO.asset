@@ -15,6 +15,7 @@ MonoBehaviour:
   <PlayerPrefab>k__BackingField: {fileID: 7540168822927578010, guid: 9bb9e265d90c8f84eac833fdfc153456, type: 3}
   <PlayerSpeed>k__BackingField: 5
   <HealthSO>k__BackingField: {fileID: 11400000, guid: 9c8aa2c4b64102844998e8e8ba30158d, type: 2}
+  <CheckingRadius>k__BackingField: 1.5
   <StepSounds>k__BackingField:
   - {fileID: 8300000, guid: 7c6101772ad54b5489685a23a73699f1, type: 3}
   - {fileID: 8300000, guid: 7a2e71a270041f945bd2a23873d775fb, type: 3}

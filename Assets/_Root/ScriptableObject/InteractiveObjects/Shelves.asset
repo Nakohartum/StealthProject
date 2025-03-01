@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TextToShow>k__BackingField:
   - Key: "\u041E \u0432\u0440\u0435\u043C\u0435\u043D\u0430, \u043E \u043D\u0440\u0430\u0432\u044B"
-    Value: {fileID: 21300000, guid: 49cc4d078de545c40b3c52394aaf4bec, type: 3}
+    Value:
+      Key: Test
+      Value: {fileID: 21300000, guid: 49cc4d078de545c40b3c52394aaf4bec, type: 3}

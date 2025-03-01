@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 714387322152411313}
   - component: {fileID: 4925147072888706433}
+  - component: {fileID: 4497477026742755709}
+  - component: {fileID: -3759251544601003378}
+  - component: {fileID: -829073202356436941}
   m_Layer: 0
   m_Name: HallTable
   m_TagString: Untagged
@@ -78,6 +81,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8290476, y: 1.6815138}
   m_EdgeRadius: 0
+--- !u!114 &4497477026742755709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577447322167415488}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineObject: {fileID: 8897091057642246103}
+  _animator: {fileID: 0}
+  _dialogSo: {fileID: 0}
+  _audioClips: []
+  _interactSound: {fileID: 0}
+--- !u!114 &-3759251544601003378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577447322167415488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcd12baa50c41a7a8894eeda015408b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableObject: {fileID: 4497477026742755709}
+  _eventType: 1
+--- !u!114 &-829073202356436941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577447322167415488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba99c0f9ac14a9c913e6d48788077fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
+  _activateSound: {fileID: 0}
+  _eventType: 1
+  _looping: 1
 --- !u!1 &7644989869447324723
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5013240126964384064}
   - component: {fileID: 2404738896256007356}
+  - component: {fileID: 8897091057642246103}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -162,3 +213,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8897091057642246103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644989869447324723}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4218d78ef2d54d0898b7514e121a781f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _color: {r: 1, g: 0, b: 0, a: 1}

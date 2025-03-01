@@ -1,4 +1,5 @@
-﻿using _Root.Code.Input;
+﻿using System;
+using _Root.Code.Input;
 using _Root.Code.MoveFeature;
 using UniRx;
 using UnityEngine;
@@ -6,7 +7,7 @@ using Zenject;
 
 namespace GameOne.Player
 {
-    public class PlayerController
+    public class PlayerController : IDisposable
     {
         private PlayerView _playerView;
         private PlayerModel _playerModel;
@@ -39,6 +40,13 @@ namespace GameOne.Player
         {
             float angle = Vector2.SignedAngle(_playerView.transform.up, obj);
             _playerView.transform.Rotate(0,0,angle);
+        }
+
+        public void Dispose()
+        {
+            _inputController.OnMove -= MovePlayer;
+            _inputController.OnMove -= RotateTowardsMovingSide;
+            _playerView.OnStepSoundPlay -= _playerSoundsPlayer.PlayRandomStepSound;
         }
     }
 }

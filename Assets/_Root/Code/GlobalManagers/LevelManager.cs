@@ -58,8 +58,8 @@ namespace _Root.Code.GlobalManagers
             _uiManager.DestroyMainMenu();
             _uiManager.CreateDialogView();
             CurrentLevel = level;
-            var instantiatedLevel = Object.Instantiate(level.LevelObject, _levelsRoot);
-            _playerView.transform.position = instantiatedLevel.PlayerSpawnPosition.position;
+            CurrentLevelObject = Object.Instantiate(level.LevelObject, _levelsRoot);
+            _playerView.transform.position = CurrentLevelObject.PlayerSpawnPosition.position;
             _playerView.gameObject.SetActive(true);
         }
 

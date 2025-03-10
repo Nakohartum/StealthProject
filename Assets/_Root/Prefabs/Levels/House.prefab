@@ -459,6 +459,7 @@ MonoBehaviour:
   <LevelMusic>k__BackingField:
   - Key: 
     Value: {fileID: 0}
+  <Cutscene>k__BackingField: {fileID: 11400000, guid: 131160be0b2b61942b11c4254fdb9ca5, type: 2}
   <PlayerSpawnPosition>k__BackingField: {fileID: 1755362292574135881}
 --- !u!1 &6908735158632817992
 GameObject:

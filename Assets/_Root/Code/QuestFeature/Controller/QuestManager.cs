@@ -20,6 +20,7 @@ namespace _Root.Code.QuestFeature.Controller
 
         public void StartQuest(QuestData questData)
         {
+            
             var questController = new QuestController(CreateQuest(questData));
             questController.OnQuestCompleted += QuestFinished;
             _activeQuests.Add(questController);

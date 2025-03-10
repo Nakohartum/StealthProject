@@ -14,7 +14,7 @@ namespace _Root.Code
         private void Start()
         {
             _playerFactory.Create();
-            _levelManager.InitLevel("HomeLevel");
+            _levelManager.InitializeMainMenu();
         }
     }
 }

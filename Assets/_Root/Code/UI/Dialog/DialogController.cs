@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using _Root.Code.Input;
+using GameOne.Player;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -17,13 +18,18 @@ namespace _Root.Code.UI
         private CancellationTokenSource _blinkTextCancellationTokenSource;
 
         [Inject]
-        private DialogController(DialogView dialogView, InputController inputController)
+        private DialogController(InputController inputController, SignalBus signalBus)
         {
-            _dialogView = dialogView;
             _inputController = inputController;
             _instance = this;
-            SetActive(false);
+            signalBus.Subscribe<DialogCreatedSignal>(OnDialogCreated);
         }
+
+        private void OnDialogCreated(DialogCreatedSignal obj)
+        {
+            _dialogView = obj.DialogView;
+        }
+
 
         private static DialogController _instance;
 

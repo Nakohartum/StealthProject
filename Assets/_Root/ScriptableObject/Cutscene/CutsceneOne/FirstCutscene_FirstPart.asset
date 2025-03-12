@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FirstCutscene_FirstPart
   m_EditorClassIdentifier: 
   <CutsceneBackgroundImage>k__BackingField: {fileID: 0}
-  <Dialog>k__BackingField: {fileID: 0}
+  <Dialog>k__BackingField: {fileID: 11400000, guid: f1b9c06db6921ff4e84ed82795e63104, type: 2}

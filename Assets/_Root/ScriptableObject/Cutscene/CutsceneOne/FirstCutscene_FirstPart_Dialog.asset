@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae800693011e4bf4ab2dc6cfc3e1f822, type: 3}
   m_Name: FirstCutscene_FirstPart_Dialog
   m_EditorClassIdentifier: 
-  <TextToShow>k__BackingField: []
+  <TextToShow>k__BackingField:
+  - Key: "\u041F\u043E\u0448\u0435\u043B \u043D\u0430\u0445\u0443\u0439"
+    Value:
+      Key: "\u041D\u0438\u043A\u0438\u0442\u0430"
+      Value: {fileID: 0}

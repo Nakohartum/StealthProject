@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d26b513614e4217a52a7ce03796573b, type: 3}
   m_Name: FirstCutscene
   m_EditorClassIdentifier: 
-  <CutsceneParts>k__BackingField: []
+  <CutsceneParts>k__BackingField:
+  - {fileID: 11400000, guid: e98aee6870379b046be7eea930bf9f98, type: 2}

@@ -9,13 +9,21 @@ namespace _Root.Code.GlobalManagers
         [SerializeField] private List<EditorHelpers.KeyValuePair<string, AudioClip>> _musicClips;
         [SerializeField] private AudioSource _audioSource;
         
-        public static GlobalMusicManager Instance;
+        public static GlobalMusicManager Instance => _instance;
         private static GlobalMusicManager _instance;
-
+        
         public void SetAmbientAudio(AudioClip clip)
         {
             _audioSource.Stop();
             _audioSource.clip = clip;
+            _audioSource.Play();
+        }
+
+        public void StartAudioByName(string name, bool isLooping = false)
+        {
+            _audioSource.Stop();
+            _audioSource.loop = isLooping;
+            _audioSource.clip = _musicClips.Find(x => x.Key == name).Value;
             _audioSource.Play();
         }
 
@@ -41,6 +49,11 @@ namespace _Root.Code.GlobalManagers
             {
                 _instance = this;
             }
+        }
+
+        public void StopMusic()
+        {
+            _audioSource.Stop();
         }
     }
 }

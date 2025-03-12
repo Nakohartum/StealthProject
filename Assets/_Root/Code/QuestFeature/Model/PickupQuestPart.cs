@@ -2,21 +2,21 @@
 {
     public class PickupQuestPart : QuestPart
     {
-        private int _targetAmount;
-        private int _currentAmount;
+        public int TargetAmount { get; private set; }
+        public int CurrentAmount { get; private set; }
         public PickupQuestPart(string description, bool isDone, string targetID, int targetAmount) : base(description, isDone, targetID)
         {
-            _targetAmount = targetAmount;
+            TargetAmount = targetAmount;
         }
 
         public override void CheckWhetherDone(string targetID)
         {
             if (TargetID == targetID)
             {
-                _currentAmount++;
+                CurrentAmount++;
             }
 
-            if (_currentAmount == _targetAmount)
+            if (CurrentAmount == TargetAmount)
             {
                 IsDone = true;
             }

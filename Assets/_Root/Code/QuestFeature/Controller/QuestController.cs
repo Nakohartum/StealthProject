@@ -1,20 +1,62 @@
 ﻿using System;
+using System.Collections.Generic;
 using _Root.Code.Miscellanious;
 using _Root.Code.QuestFeature.Model;
+using _Root.Code.UI;
 using ModestTree.Util;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace _Root.Code.QuestFeature.Controller
 {
     public class QuestController : IDisposable
     {
         private QuestModel _questModel;
+        private QuestView _questView;
+        private QuestPartView _questPartViewPrefab;
+        private List<QuestPartView> _currentQuestParts = new List<QuestPartView>();
         public event Action<QuestController> OnQuestCompleted;
 
-        public QuestController(QuestModel questModel)
+        public QuestController(QuestModel questModel, QuestView questView, QuestPartView questPartViewPrefab)
         {
             _questModel = questModel;
+            _questView = questView;
+            _questPartViewPrefab = questPartViewPrefab;
+            InitializeQuestView();
             SubscribeToEvent();
+        }
+
+        private void InitializeQuestView()
+        {
+            _questView.SetTitle(_questModel.Name);
+            for (int i = 0; i < _questModel.Parts.Length; i++)
+            {
+                var questPartView = Object.Instantiate(_questPartViewPrefab, _questView.QuestPartsContainer);
+                _currentQuestParts.Add(questPartView);
+                UpdateQuestPartView(questPartView, _questModel.Parts[i]);
+            }
+        }
+
+        private void UpdateQuestView()
+        {
+            for (int i = 0; i < _questModel.Parts.Length; i++)
+            {
+                UpdateQuestPartView(_currentQuestParts[i], _questModel.Parts[i]);
+            }
+        }
+        
+        private void UpdateQuestPartView(QuestPartView questPartView, QuestPart questPart)
+        {
+            questPartView.SetQuestPartCompleted(questPart.IsDone);
+            questPartView.SetQuestPartName(questPart.Description);
+            if (questPart is PickupQuestPart pickupQuestPart)
+            {
+                questPartView.SetQuestPartProgress($"{pickupQuestPart.CurrentAmount}/{pickupQuestPart.TargetAmount}");
+            }
+            else
+            {
+                questPartView.SetQuestPartProgress(string.Empty);
+            }
         }
 
         private void SubscribeToEvent()
@@ -54,8 +96,11 @@ namespace _Root.Code.QuestFeature.Controller
             _questModel.CheckWhetherDine();
             if (_questModel.Completed)
             {
+                Debug.Log("Completed");
                 OnQuestCompleted?.Invoke(this);
+                Object.Destroy(_questView.gameObject);
             }
+            UpdateQuestView();
         }
 
         public void Dispose()

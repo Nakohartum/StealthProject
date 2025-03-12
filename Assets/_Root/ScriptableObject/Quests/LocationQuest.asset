@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70b5c27e71d42fbbd5cac8a12fdc79f, type: 3}
   m_Name: LocationQuest
   m_EditorClassIdentifier: 
-  QuestName: GoToBedRoom
-  StartTime: 10
+  QuestName: Go to bedroom
+  StartTime: 1
   QuestParts:
   - QuestType: 0
     Description: Go to bedroom

@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491d186de1b741dbbc3f21bae9cd61d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <QuestData>k__BackingField: {fileID: 11400000, guid: 495bff04b534c244f8e1cdd8f86c191d, type: 2}
+  <QuestData>k__BackingField: {fileID: 11400000, guid: f8a0a3edc5618704b849350398188808, type: 2}
   <EventInvoker>k__BackingField: {fileID: 5164511631766848634}
 --- !u!114 &5164511631766848634
 MonoBehaviour:
@@ -1181,8 +1181,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 577447322167415488, guid: 84bc3d87f3453d3469b57b8d2388c99a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4947259888730114387}
   m_SourcePrefab: {fileID: 100100000, guid: 84bc3d87f3453d3469b57b8d2388c99a, type: 3}
+--- !u!1 &10972609838806558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 577447322167415488, guid: 84bc3d87f3453d3469b57b8d2388c99a, type: 3}
+  m_PrefabInstance: {fileID: 587010293607523550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4947259888730114387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10972609838806558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b514907f23e347e180e5b86d4e5c8d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickupItemId: phone
+  _outlineObject: {fileID: 0}
+  _shouldDestroyOnPickup: 0
 --- !u!4 &130456764542256239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 714387322152411313, guid: 84bc3d87f3453d3469b57b8d2388c99a, type: 3}

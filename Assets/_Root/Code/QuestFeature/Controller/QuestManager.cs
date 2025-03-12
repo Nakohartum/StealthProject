@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Root.Code.LevelManager;
 using _Root.Code.QuestFeature.Model;
+using _Root.Code.UI;
 using UnityEngine;
+using Zenject;
 
 namespace _Root.Code.QuestFeature.Controller
 {
@@ -9,19 +12,29 @@ namespace _Root.Code.QuestFeature.Controller
     {
         private static QuestManager _instance;
         private List<QuestController> _activeQuests = new List<QuestController>();
+        private QuestPartView _questPartViewPrefab;
+        private UIManager _uiManager;
+        
+        [Inject]
+        private QuestManager(QuestPartView questPartViewPrefab, UIManager uiManager)
+        {
+            _questPartViewPrefab = questPartViewPrefab;
+            _uiManager = uiManager;
+            _instance = this;
+        }
 
         public static QuestManager Instance
         {
             get
             {
-                return _instance ??= new QuestManager();
+                return _instance;
             }
         }
 
         public void StartQuest(QuestData questData)
         {
-            
-            var questController = new QuestController(CreateQuest(questData));
+            var questView = _uiManager.CreateQuestView();
+            var questController = new QuestController(CreateQuest(questData), questView, _questPartViewPrefab);
             questController.OnQuestCompleted += QuestFinished;
             _activeQuests.Add(questController);
             Debug.Log($"Started quest {questData.QuestName}");

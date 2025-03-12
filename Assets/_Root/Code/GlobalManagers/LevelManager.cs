@@ -42,14 +42,12 @@ namespace _Root.Code.GlobalManagers
             Object.Destroy(CurrentLevelObject.gameObject);
             _uiManager.DestroyDialogView();
         }
+        
+        
 
         public void InitLevel(string levelName)
         {
             _playerView.gameObject.SetActive(false);
-            if (levelName == "MainMenu")
-            {
-                InitializeMainMenu();
-            }
             var level = _levels.FirstOrDefault(q => q.LevelName == levelName);
             if (level == null)
             {

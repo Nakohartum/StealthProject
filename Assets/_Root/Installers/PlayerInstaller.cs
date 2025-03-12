@@ -1,4 +1,5 @@
 using _Root.Code.Health;
+using _Root.Code.QuestFeature.Controller;
 using Cinemachine;
 using GameOne.Player;
 using UnityEngine;
@@ -14,5 +15,6 @@ public class PlayerInstaller : MonoInstaller
         SignalBusInstaller.Install(Container);
         Container.Bind<IFactory<PlayerView>>().To<PlayerFactory>().AsSingle().WithArguments(_playerSO, _parent);
         Container.Bind<CinemachineTargetGroup>().FromInstance(_machineTargetGroup).AsSingle();
+        
     }
 }

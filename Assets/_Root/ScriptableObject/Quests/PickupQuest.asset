@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PickupQuest
   m_EditorClassIdentifier: 
   QuestName: PickupTest
+  StartTime: 1
   QuestParts:
   - QuestType: 1
     Description: Pick the item
-    TargetID: example
+    TargetID: phone
     TargetAmount: 1

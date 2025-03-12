@@ -1011,6 +1011,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogViewPrefab: {fileID: 7100624906036911254, guid: 5eec27d4b354d1846b326c27572073fe, type: 3}
   _mainMenuViewPrefab: {fileID: 8425267998128902366, guid: 38cc20d9ebd3cdd478507227d4e45b58, type: 3}
+  _cutsceneViewPrefab: {fileID: 6224315894599087625, guid: 5969ce09ca20c1a458c4d2c5202494b6, type: 3}
+  _questViewPrefab: {fileID: 1267344165540919535, guid: 6b49c3029316df54caac92e95665e25f, type: 3}
+  _questPartViewPrefab: {fileID: 2078879894110196795, guid: 8660da27871220e469c2db0d122d995b, type: 3}
   _root: {fileID: 576181677}
 --- !u!1 &1566622115
 GameObject:

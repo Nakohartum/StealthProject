@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3759251544601003378}
   - component: {fileID: -829073202356436941}
   - component: {fileID: 660256460458333472}
+  - component: {fileID: 366526039577124753}
   m_Layer: 0
   m_Name: HallTable
   m_TagString: Untagged
@@ -31,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5013240126964384064}
   m_Father: {fileID: 0}
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcd12baa50c41a7a8894eeda015408b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableObject: {fileID: 0}
+  _interactableObject: {fileID: 4526160965095334106}
   _eventType: 1
 --- !u!114 &-829073202356436941
 MonoBehaviour:
@@ -227,6 +228,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &366526039577124753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577447322167415488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b514907f23e347e180e5b86d4e5c8d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineObject: {fileID: 0}
+  _animator: {fileID: 0}
+  _dialogSo: {fileID: 0}
+  _audioClips: []
+  _interactSound: {fileID: 0}
+  _pickupItemId: phone
+  _shouldDestroyOnPickup: 0
 --- !u!1 &7644989869447324723
 GameObject:
   m_ObjectHideFlags: 0

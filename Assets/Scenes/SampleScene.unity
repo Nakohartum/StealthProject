@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &120243039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 120243040}
+  - component: {fileID: 120243041}
+  m_Layer: 0
+  m_Name: UIInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &120243040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120243039}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1150139632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &120243041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120243039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16981465008f44839c6b836abc2b84dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &311579685
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,10 +497,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
+  - {fileID: 546900779}
+  - {fileID: 120243041}
   - {fileID: 1745807608}
   - {fileID: 311579687}
-  - {fileID: 1368950051}
-  - {fileID: 0}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -474,6 +518,50 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
+--- !u!1 &546900777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546900778}
+  - component: {fileID: 546900779}
+  m_Layer: 0
+  m_Name: SignalsInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &546900778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546900777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1150139632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &546900779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546900777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0c37a1c148414b90455dd4444998b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &576181676
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +794,7 @@ MonoBehaviour:
   _mainMenuView: {fileID: 8425267998128902366, guid: 38cc20d9ebd3cdd478507227d4e45b58, type: 3}
   _cutsceneView: {fileID: 6224315894599087625, guid: 5969ce09ca20c1a458c4d2c5202494b6, type: 3}
   _questView: {fileID: 1267344165540919535, guid: 6b49c3029316df54caac92e95665e25f, type: 3}
+  _questPartViewPrefab: {fileID: 2078879894110196795, guid: 8660da27871220e469c2db0d122d995b, type: 3}
 --- !u!1 &781827455
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +889,7 @@ MonoBehaviour:
   _levelsRoot: {fileID: 1878386682}
   _levels:
   - {fileID: 11400000, guid: ac91df3f569132d4d81253702ba02471, type: 2}
+  _uiManager: {fileID: 686383510}
 --- !u!1 &1035122226
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +994,8 @@ Transform:
   - {fileID: 526089670}
   - {fileID: 1745807607}
   - {fileID: 311579686}
-  - {fileID: 1368950050}
+  - {fileID: 546900778}
+  - {fileID: 120243040}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1156434516
@@ -1059,56 +1150,6 @@ Transform:
   - {fileID: 576181677}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1368950049
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1368950050}
-  - component: {fileID: 1368950051}
-  m_Layer: 0
-  m_Name: UIInstaller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1368950050
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368950049}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1150139632}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1368950051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368950049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81e58195ef675c3469b08141560c9d00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogViewPrefab: {fileID: 7100624906036911254, guid: 5eec27d4b354d1846b326c27572073fe, type: 3}
-  _mainMenuViewPrefab: {fileID: 8425267998128902366, guid: 38cc20d9ebd3cdd478507227d4e45b58, type: 3}
-  _cutsceneViewPrefab: {fileID: 6224315894599087625, guid: 5969ce09ca20c1a458c4d2c5202494b6, type: 3}
-  _questViewPrefab: {fileID: 1267344165540919535, guid: 6b49c3029316df54caac92e95665e25f, type: 3}
-  _questPartViewPrefab: {fileID: 2078879894110196795, guid: 8660da27871220e469c2db0d122d995b, type: 3}
-  _root: {fileID: 576181677}
 --- !u!1 &1566622115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aed6c3cb2504a03a24ef7e561222a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelManager: {fileID: 979245784}
+  _uiManager: {fileID: 686383510}
 --- !u!1 &1878386681
 GameObject:
   m_ObjectHideFlags: 0

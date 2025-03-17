@@ -9,6 +9,7 @@ using Zenject;
 
 namespace GameOne.Player
 {
+    //TODO: REFACTOR FACTORY
     public class PlayerFactory : IFactory<PlayerView>
     {
         private readonly DiContainer _container;
@@ -26,7 +27,6 @@ namespace GameOne.Player
 
         public PlayerView Create()
         {
-            
             var targetGroup = _container.Resolve<CinemachineTargetGroup>();
             var playerGo = _container.InstantiatePrefab(_playerSo.PlayerPrefab, _parent);
             playerGo.transform.SetParent(_parent);
@@ -44,10 +44,8 @@ namespace GameOne.Player
             var controller = new PlayerController(playerView, inputController, playerModel, moveController);
             _container.BindInstance(controller);
             var interactiveChecker = new InteractiveObjectsChecker(playerView.Rigidbody, _playerSo.CheckingRadius, inputController);
-            var pickupItemChecker = new PickupItemChecker(playerView.Rigidbody, _playerSo.CheckingRadius, inputController);
             var tickableManager = _container.Resolve<TickableManager>();
             tickableManager.Add(interactiveChecker);
-            tickableManager.Add(pickupItemChecker);
             return playerView;
         }
     }

@@ -12,32 +12,33 @@ namespace _Root.Code.QuestFeature.Controller
     {
         private static QuestManager _instance;
         private List<QuestController> _activeQuests = new List<QuestController>();
-        private QuestPartView _questPartViewPrefab;
         private UIManager _uiManager;
         
-        [Inject]
-        private QuestManager(QuestPartView questPartViewPrefab, UIManager uiManager)
+        
+        private QuestManager()
         {
-            _questPartViewPrefab = questPartViewPrefab;
+            
+        }
+
+        public void Initialize(UIManager uiManager)
+        {
             _uiManager = uiManager;
-            _instance = this;
         }
 
         public static QuestManager Instance
         {
             get
             {
-                return _instance;
+                return _instance ??= new QuestManager();
             }
         }
 
         public void StartQuest(QuestData questData)
         {
             var questView = _uiManager.CreateQuestView();
-            var questController = new QuestController(CreateQuest(questData), questView, _questPartViewPrefab);
+            var questController = new QuestController(CreateQuest(questData), questView, _uiManager);
             questController.OnQuestCompleted += QuestFinished;
             _activeQuests.Add(questController);
-            Debug.Log($"Started quest {questData.QuestName}");
         }
 
         private void QuestFinished(QuestController questController)

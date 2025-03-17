@@ -4176,6 +4176,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8947337634700455430}
     m_Modifications:
+    - target: {fileID: -3759251544601003378, guid: 84bc3d87f3453d3469b57b8d2388c99a, type: 3}
+      propertyPath: _interactableObject
+      value: 
+      objectReference: {fileID: 3960174435109323780}
     - target: {fileID: 577447322167415488, guid: 84bc3d87f3453d3469b57b8d2388c99a, type: 3}
       propertyPath: m_Name
       value: HallTable
@@ -4261,14 +4265,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b514907f23e347e180e5b86d4e5c8d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickupItemId: phone
   _outlineObject: {fileID: 0}
+  _animator: {fileID: 0}
+  _dialogSo: {fileID: 0}
+  _audioClips: []
+  _interactSound: {fileID: 0}
+  _pickupItemId: phone
   _shouldDestroyOnPickup: 0
 --- !u!4 &130456764542256239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 714387322152411313, guid: 84bc3d87f3453d3469b57b8d2388c99a, type: 3}
   m_PrefabInstance: {fileID: 587010293607523550}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3960174435109323780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4526160965095334106, guid: 84bc3d87f3453d3469b57b8d2388c99a, type: 3}
+  m_PrefabInstance: {fileID: 587010293607523550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10972609838806558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b514907f23e347e180e5b86d4e5c8d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &640195345859337366
 PrefabInstance:
   m_ObjectHideFlags: 0

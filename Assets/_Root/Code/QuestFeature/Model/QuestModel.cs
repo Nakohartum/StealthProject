@@ -24,7 +24,6 @@ namespace _Root.Code.QuestFeature.Model
                     return;
                 }
             }
-            Debug.Log("Quest is done");
             Completed = true;
         }
     }

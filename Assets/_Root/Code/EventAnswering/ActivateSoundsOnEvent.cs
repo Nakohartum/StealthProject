@@ -19,7 +19,6 @@ namespace _Root.Code.EventAnswering
 
         private void ActivateSound()
         {
-            Debug.Log("Played");
             if (_activateSound != null)
             {
                 _audioSource.loop = _looping;

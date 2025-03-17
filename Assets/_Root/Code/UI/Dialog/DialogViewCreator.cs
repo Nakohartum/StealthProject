@@ -3,7 +3,7 @@ using GameOne.Player;
 using UnityEngine;
 using Zenject;
 
-namespace _Root.Code.LevelManager
+namespace _Root.Code.UI.Dialog
 {
     public class DialogViewCreator
     {
@@ -18,11 +18,11 @@ namespace _Root.Code.LevelManager
             _signalBus = signalBus;
         }
 
-        public void CreateDialogView(Transform root)
+        public DialogView CreateDialogView(Transform root)
         {
             if (_dialogViewInstance != null)
             {
-                return;
+                return _dialogViewInstance;
             }
             _dialogViewInstance = Object.Instantiate(_dialogViewPrefab, root);
             _signalBus.Fire(new DialogCreatedSignal
@@ -30,6 +30,7 @@ namespace _Root.Code.LevelManager
                 DialogView = _dialogViewInstance
             });
             _dialogViewInstance.gameObject.SetActive(false);
+            return _dialogViewInstance;
         }
 
         public void DestroyDialogView()
@@ -38,5 +39,9 @@ namespace _Root.Code.LevelManager
             Object.Destroy(_dialogViewInstance.gameObject);
             _dialogViewInstance = null;
         }
+    }
+    public class DialogCreatedSignal
+    {
+        public DialogView DialogView;
     }
 }

@@ -6,9 +6,4 @@ namespace GameOne.Player
     {
         public PlayerView PlayerView;
     }
-
-    public class DialogCreatedSignal
-    {
-        public DialogView DialogView;
-    }
 }

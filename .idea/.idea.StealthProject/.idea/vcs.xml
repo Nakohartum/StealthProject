@@ -2,26 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/DayNightXMLThemes" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/FinanceManager" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/FinanceManager2" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/FirstAppOnXML" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/FragmentsMVVM" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/GeoRetrofitRoomComposeNavigation" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/MealJsonExample-main" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/NotificationApp" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/ScaffoldNavigation" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/SecondAppOnXML" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/ShoppinItemRoomDataBase" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/ShoppingItemSelectLocation" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/ShoppingListThreeOFour" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/TaskList" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/TextAppearAnimation" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/ThirdAppOnXML" vcs="Git" />
-    <mapping directory="$USER_HOME$/AndroidStudioProjects/WordLearnApp" vcs="Git" />
-    <mapping directory="$USER_HOME$/Downloads/StealthProject-main" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../GitHub/AndroidStudio-ShoppingItem" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../GitHub/AndroidStudio-ShoppingItems" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../GitHub/desktop-tutorial" vcs="Git" />
   </component>
 </project>

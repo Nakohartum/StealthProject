@@ -1,5 +1,6 @@
 using _Root.Code.Health;
 using _Root.Code.QuestFeature.Controller;
+using _Root.Code.UI.Dialog;
 using Cinemachine;
 using GameOne.Player;
 using UnityEngine;
@@ -12,7 +13,6 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private CinemachineTargetGroup _machineTargetGroup;
     public override void InstallBindings()
     {
-        SignalBusInstaller.Install(Container);
         Container.Bind<IFactory<PlayerView>>().To<PlayerFactory>().AsSingle().WithArguments(_playerSO, _parent);
         Container.Bind<CinemachineTargetGroup>().FromInstance(_machineTargetGroup).AsSingle();
         

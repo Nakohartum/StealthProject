@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using _Root.Code.Input;
+using _Root.Code.UI.Dialog;
 using GameOne.Player;
 using UnityEngine;
 using UnityEngine.UI;

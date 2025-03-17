@@ -25,7 +25,12 @@ namespace _Root.Code.InteractiveObjects
 
         private void Start()
         {
-            _outlineObject.enabled = false;
+            if (_outlineObject != null)
+            {
+                _outlineObject.enabled = false;
+            }
+            
+            
             _hasTextToShow = _dialogSo != null && _dialogSo.TextToShow.Count > 0;
             _hasAudio = _interactSound != null && _audioClips.Count > 0;
             _hasAnimationToShow = _animator != null;
@@ -48,7 +53,7 @@ namespace _Root.Code.InteractiveObjects
             _outlineObject.enabled = false;
         }
 
-        public void Interact()
+        public virtual void Interact()
         {
             ToggleState();
             if (_interactSound != null)

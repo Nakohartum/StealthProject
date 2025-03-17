@@ -1,6 +1,7 @@
 ﻿using _Root.Code.CutsceneFeature.Model;
 using _Root.Code.CutsceneFeature.View;
 using _Root.Code.LevelManager;
+using _Root.Code.UI;
 using UnityEngine;
 using Zenject;
 

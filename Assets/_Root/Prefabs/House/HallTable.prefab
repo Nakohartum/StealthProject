@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 714387322152411313}
   - component: {fileID: 4925147072888706433}
-  - component: {fileID: 4497477026742755709}
+  - component: {fileID: 4526160965095334106}
   - component: {fileID: -3759251544601003378}
   - component: {fileID: -829073202356436941}
   - component: {fileID: 660256460458333472}
@@ -82,16 +82,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8290476, y: 1.6815138}
   m_EdgeRadius: 0
---- !u!114 &4497477026742755709
+--- !u!114 &4526160965095334106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577447322167415488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
+  m_Script: {fileID: 11500000, guid: b514907f23e347e180e5b86d4e5c8d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _outlineObject: {fileID: 8897091057642246103}
@@ -99,6 +99,8 @@ MonoBehaviour:
   _dialogSo: {fileID: 0}
   _audioClips: []
   _interactSound: {fileID: 660256460458333472}
+  _pickupItemId: phone
+  _shouldDestroyOnPickup: 0
 --- !u!114 &-3759251544601003378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcd12baa50c41a7a8894eeda015408b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableObject: {fileID: 4497477026742755709}
+  _interactableObject: {fileID: 0}
   _eventType: 1
 --- !u!114 &-829073202356436941
 MonoBehaviour:
@@ -317,7 +319,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7644989869447324723}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4218d78ef2d54d0898b7514e121a781f, type: 3}
   m_Name: 

@@ -13,15 +13,16 @@ namespace _Root.Code.QuestFeature.Controller
     {
         private QuestModel _questModel;
         private QuestView _questView;
-        private QuestPartView _questPartViewPrefab;
+        private UIManager _uiManager;
         private List<QuestPartView> _currentQuestParts = new List<QuestPartView>();
         public event Action<QuestController> OnQuestCompleted;
 
-        public QuestController(QuestModel questModel, QuestView questView, QuestPartView questPartViewPrefab)
+        public QuestController(QuestModel questModel, QuestView questView, 
+            UIManager uiManager)
         {
             _questModel = questModel;
             _questView = questView;
-            _questPartViewPrefab = questPartViewPrefab;
+            _uiManager = uiManager;
             InitializeQuestView();
             SubscribeToEvent();
         }
@@ -31,7 +32,7 @@ namespace _Root.Code.QuestFeature.Controller
             _questView.SetTitle(_questModel.Name);
             for (int i = 0; i < _questModel.Parts.Length; i++)
             {
-                var questPartView = Object.Instantiate(_questPartViewPrefab, _questView.QuestPartsContainer);
+                var questPartView = _uiManager.CreateQuestPartView(_questView.QuestPartsContainer);
                 _currentQuestParts.Add(questPartView);
                 UpdateQuestPartView(questPartView, _questModel.Parts[i]);
             }
@@ -75,7 +76,6 @@ namespace _Root.Code.QuestFeature.Controller
                 }
             }
             CheckQuestCompleted();
-            Debug.Log("PickedUp");
         }
 
         private void LocationAchieved(string obj)
@@ -96,7 +96,6 @@ namespace _Root.Code.QuestFeature.Controller
             _questModel.CheckWhetherDine();
             if (_questModel.Completed)
             {
-                Debug.Log("Completed");
                 OnQuestCompleted?.Invoke(this);
                 Object.Destroy(_questView.gameObject);
             }

@@ -1,19 +1,19 @@
 ﻿using System.Linq;
 using _Root.Code.LevelManager;
+using _Root.Code.UI;
 using GameOne.Player;
 using UnityEngine;
 using Zenject;
 
 namespace _Root.Code.GlobalManagers
 {
-    public class LevelManager
+    public class LevelManager : MonoBehaviour
     {
         private PlayerView _playerView;
         private static LevelManager _levelManager;
-        [Inject] private LevelSO[] _levels;
-        [Inject] private Transform _levelsRoot;
-        [Inject] private Transform _uiRoot;
-        [Inject] private UIManager _uiManager;
+        [SerializeField] private Transform _levelsRoot;
+        [SerializeField] private LevelSO[] _levels;
+        [SerializeField] private UIManager _uiManager;
         public LevelSO CurrentLevel {get; private set;}
         public Level CurrentLevelObject {get; private set;}
 

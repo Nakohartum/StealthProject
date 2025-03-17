@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace _Root.Code.LevelManager
+namespace _Root.Code.UI.MainMenu
 {
     public class MainMenuCreator
     {
@@ -16,13 +16,14 @@ namespace _Root.Code.LevelManager
             _signalBus = signalBus;
         }
 
-        public void CreateMainMenu(Transform root)
+        public MainMenuView CreateMainMenu(Transform root)
         {
             if (_currentMainMenu != null)
             {
-                return;
+                return _currentMainMenu;
             }
             _currentMainMenu = Object.Instantiate(_mainMenuPrefab, root);
+            return _currentMainMenu;
         }
 
         public void DestroyMainMenu()

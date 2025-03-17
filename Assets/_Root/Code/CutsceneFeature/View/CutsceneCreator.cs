@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace _Root.Code.LevelManager
+namespace _Root.Code.CutsceneFeature
 {
     public class CutsceneCreator
     {
@@ -16,11 +16,11 @@ namespace _Root.Code.LevelManager
             _signalBus = signalBus;
         }
 
-        public void CreateCutsceneView(Transform root)
+        public CutsceneView CreateCutsceneView(Transform root)
         {
             if (_currentCutsceneView != null)
             {
-                return;
+                return _currentCutsceneView;
             }
             
             _currentCutsceneView = Object.Instantiate(_cutscenePrefab, root);
@@ -28,6 +28,7 @@ namespace _Root.Code.LevelManager
             {
                 CutsceneView = _currentCutsceneView
             });
+            return _currentCutsceneView;
         }
 
         public void DestroyCutsceneView()
@@ -36,5 +37,10 @@ namespace _Root.Code.LevelManager
             Object.Destroy(_currentCutsceneView.gameObject);
             _currentCutsceneView = null;
         }
+    }
+    
+    class CutsceneCreatedSignal
+    {
+        public CutsceneView CutsceneView;
     }
 }

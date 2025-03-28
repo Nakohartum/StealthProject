@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8666663571517160768}
   - component: {fileID: 7630899164656936011}
   - component: {fileID: 8513814812424006114}
+  - component: {fileID: -1304282392782463400}
+  - component: {fileID: 6463480253826473587}
   m_Layer: 0
   m_Name: BathroomSink
   m_TagString: Untagged
@@ -92,17 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineObject: {fileID: 7558472808631348604}
-  _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
-  _audioClips:
-  - Key: 0
-    Value: {fileID: 0}
-  - Key: 1
-    Value: {fileID: 8300000, guid: a015547f151b07347acfb9a6ce16df4c, type: 3}
-  - Key: 0
-    Value: {fileID: 0}
-  _interactSound: {fileID: 8513814812424006114}
 --- !u!82 &8513814812424006114
 AudioSource:
   m_ObjectHideFlags: 0
@@ -199,6 +190,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1304282392782463400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457991390042115260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 6463480253826473587}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &6463480253826473587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457991390042115260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a74f99d99b84a93ab75fcbf5a94da62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineFx: {fileID: 7558472808631348604}
+  _audioSource: {fileID: 8513814812424006114}
+  _onClip: {fileID: 8300000, guid: 6f59a33e11b9e3c45a6ef11845bde5e4, type: 3}
+  _loopClip: {fileID: 8300000, guid: a015547f151b07347acfb9a6ce16df4c, type: 3}
+  _offClip: {fileID: 8300000, guid: 7fbd65198b5870440ac78e210f4b7929, type: 3}
+  _dialog: {fileID: 0}
 --- !u!1 &7594016967350992477
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: -3759251544601003378}
   - component: {fileID: -829073202356436941}
   - component: {fileID: 660256460458333472}
-  - component: {fileID: 366526039577124753}
+  - component: {fileID: -884732052533681239}
+  - component: {fileID: 6457458675040893415}
   m_Layer: 0
   m_Name: HallTable
   m_TagString: Untagged
@@ -95,11 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b514907f23e347e180e5b86d4e5c8d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineObject: {fileID: 8897091057642246103}
-  _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
-  _audioClips: []
-  _interactSound: {fileID: 660256460458333472}
   _pickupItemId: phone
   _shouldDestroyOnPickup: 0
 --- !u!114 &-3759251544601003378
@@ -128,10 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba99c0f9ac14a9c913e6d48788077fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 660256460458333472}
-  _activateSound: {fileID: 8300000, guid: 24b668ddff4bf4d41ba1489b3e39296a, type: 3}
+  _interactableObject: {fileID: 4526160965095334106}
   _eventType: 1
-  _looping: 1
 --- !u!82 &660256460458333472
 AudioSource:
   m_ObjectHideFlags: 0
@@ -228,7 +222,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &366526039577124753
+--- !u!114 &-884732052533681239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,16 +231,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 577447322167415488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b514907f23e347e180e5b86d4e5c8d94, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a74f99d99b84a93ab75fcbf5a94da62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineObject: {fileID: 0}
-  _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
-  _audioClips: []
-  _interactSound: {fileID: 0}
-  _pickupItemId: phone
-  _shouldDestroyOnPickup: 0
+  _outlineFx: {fileID: 8897091057642246103}
+  _audioSource: {fileID: 660256460458333472}
+  _onClip: {fileID: 0}
+  _loopClip: {fileID: 8300000, guid: 24b668ddff4bf4d41ba1489b3e39296a, type: 3}
+  _offClip: {fileID: 0}
+  _dialog: {fileID: 0}
+--- !u!114 &6457458675040893415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577447322167415488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: -884732052533681239}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
 --- !u!1 &7644989869447324723
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,13 +11,15 @@ namespace _Root.Code.Input
     {
         private InputActions _inputActions;
         public event Action<Vector2> OnMove = v => { };
-        [Inject(Id = "deltaTime")] private float _deltaTime;
+        private float _deltaTime;
         public event Action OnAnyKeyEntered = () => { };
         public event Action OnInteract = () => { };
 
-        public InputController(InputActions inputActions)
+        [Inject]
+        public InputController(float deltaTime)
         {
-            _inputActions = inputActions;
+            _inputActions = new InputActions();
+            _deltaTime = deltaTime;
             EnablePlayerInput();
             DisableAnyKey();
         }
@@ -30,6 +32,15 @@ namespace _Root.Code.Input
                 _inputActions.PlayerMovement.Interact.performed += InteractOnperformed;
             }
             EnableAnyKey();
+            if (_inputActions.PlayerMovement.AnyKey.enabled)
+            {
+                _inputActions.PlayerMovement.AnyKey.performed += OnAnyKeyPressed;
+            }
+        }
+
+        private void OnAnyKeyPressed(InputAction.CallbackContext obj)
+        {
+            OnAnyKeyEntered();
         }
 
         public void Tick()

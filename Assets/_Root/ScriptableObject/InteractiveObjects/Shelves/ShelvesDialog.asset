@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad3fedcd18f4d3db7d41534720a0557, type: 3}
+  m_Name: ShelvesDialog
+  m_EditorClassIdentifier: 
+  Parts:
+  - {fileID: 11400000, guid: 4c2f2136ee933db47bed815c32e6834d, type: 2}
+  - {fileID: 11400000, guid: 49b670f5d54265a4fbcee1a86c139ee1, type: 2}

@@ -1,7 +1,8 @@
 ﻿using System;
+using _Root.Code.Input;
 using _Root.Code.LevelManager;
+using _Root.Code.MainMenuFeature.MainMenuManager;
 using _Root.Code.QuestFeature.Controller;
-using _Root.Code.UI;
 using GameOne.Player;
 using UnityEngine;
 using Zenject;
@@ -10,14 +11,10 @@ namespace _Root.Code
 {
     public class Root : MonoBehaviour
     {
-        [SerializeField] private GlobalManagers.LevelManager _levelManager;
-        [Inject] private IFactory<PlayerView> _playerFactory;
-        [SerializeField] private UIManager _uiManager;
+        [Inject] private MainMenuManager _menuManager;
         private void Start()
         {
-            _playerFactory.Create();
-            _levelManager.InitializeMainMenu();
-            QuestManager.Instance.Initialize(_uiManager);
+            _menuManager.OpenMainMenu();
         }
     }
 }

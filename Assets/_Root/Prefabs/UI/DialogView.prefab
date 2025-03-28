@@ -46,13 +46,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 494806540249902160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24ef1eeefaee4b2c967dce6b118970eb, type: 3}
+  m_Script: {fileID: 11500000, guid: cfa8e893bec84f8e8a8408fd16333c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 1648395955926500017}
-  _title: {fileID: 2736724608513147454}
-  _blinkingText: {fileID: 8728390795950495689}
-  _image: {fileID: 496309186735431319}
+  _characterImage: {fileID: 496309186735431319}
+  _characterName: {fileID: 2736724608513147454}
+  _dialogText: {fileID: 1648395955926500017}
+  _nextLabel: {fileID: 8728390795950495689}
 --- !u!1 &1148764042739003680
 GameObject:
   m_ObjectHideFlags: 0

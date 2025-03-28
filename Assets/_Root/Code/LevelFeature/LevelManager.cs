@@ -1,69 +1,55 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using _Root.Code.CutsceneFeature.Manager;
 using _Root.Code.LevelManager;
-using _Root.Code.UI;
 using GameOne.Player;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace _Root.Code.GlobalManagers
 {
-    public class LevelManager : MonoBehaviour
+    public class LevelManager 
     {
-        private PlayerView _playerView;
-        private static LevelManager _levelManager;
-        [SerializeField] private Transform _levelsRoot;
-        [SerializeField] private LevelSO[] _levels;
-        [SerializeField] private UIManager _uiManager;
-        public LevelSO CurrentLevel {get; private set;}
+        private Transform _levelsRoot;
+        private LevelSO[] _levels;
         public Level CurrentLevelObject {get; private set;}
-
-        public static LevelManager Instance
-        {
-            get
-            {
-                return _levelManager;
-            }
-        }
+        private CutsceneManager _cutsceneManager;
+        private DiContainer _container;
+        private IFactory<Transform, PlayerController> _playerFactory;
 
         [Inject]
-        public void Initialize(SignalBus signalBus)
+        public LevelManager(Transform levelsRoot, LevelSO[] levels, CutsceneManager cutsceneManager, DiContainer container, IFactory<Transform, PlayerController> playerFactory)
         {
-            signalBus.Subscribe<PlayerCreatedSignal>(OnPlayerCreated);
-            _levelManager ??= this;
+            _levelsRoot = levelsRoot;
+            _levels = levels;
+            _cutsceneManager = cutsceneManager;
+            _container = container;
+            _playerFactory = playerFactory;
         }
 
-        private void OnPlayerCreated(PlayerCreatedSignal obj)
-        {
-            _playerView = obj.PlayerView;
-        }
-
-        public void DestroyLevel()
+        private void DestroyLevel()
         {
             Object.Destroy(CurrentLevelObject.gameObject);
-            _uiManager.DestroyDialogView();
         }
-        
-        
 
         public void InitLevel(string levelName)
         {
-            _playerView.gameObject.SetActive(false);
+            if (CurrentLevelObject != null)
+            {
+                DestroyLevel();
+            }
             var level = _levels.FirstOrDefault(q => q.LevelName == levelName);
             if (level == null)
             {
                 return;
             }
-            _uiManager.DestroyMainMenu();
-            _uiManager.CreateDialogView();
-            CurrentLevel = level;
-            CurrentLevelObject = Object.Instantiate(level.LevelObject, _levelsRoot);
-            _playerView.transform.position = CurrentLevelObject.PlayerSpawnPosition.position;
-            _playerView.gameObject.SetActive(true);
-        }
-
-        public void InitializeMainMenu()
-        {
-            _uiManager.CreateMainMenu();
+            CurrentLevelObject = _container.InstantiatePrefabForComponent<Level>(level.LevelObject, _levelsRoot);
+            _playerFactory.Create(CurrentLevelObject.PlayerSpawnPosition);
+            if (CurrentLevelObject.StartingCutsceneName != "")
+            {
+                _cutsceneManager.StartCutscene(CurrentLevelObject.StartingCutsceneName);
+            }
         }
     }
 }

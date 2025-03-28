@@ -34,6 +34,7 @@ namespace GameOne.Player
         {
             _playerView.Animator.SetBool(_isWalkingHash, obj != Vector2.zero);
             _moveController.Move(obj);
+            _playerModel.Position = obj;
         }
 
         private void RotateTowardsMovingSide(Vector2 obj)

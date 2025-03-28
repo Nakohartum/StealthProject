@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Root.Code.CutsceneFeature.Manager;
 using _Root.Code.CutsceneFeature.Model;
 using _Root.Code.GlobalManagers;
 using _Root.Code.QuestFeature.Controller;
@@ -11,14 +12,9 @@ namespace _Root.Code.LevelManager
     public class Level : MonoBehaviour
     {
         [field: SerializeField] public AudioClip StartingLevelMusic { get; private set; }
-        [field: SerializeField] public CutsceneSO StartingCutscene { get; private set; }
+        [field: SerializeField] public string StartingCutsceneName { get; private set; }
         [field: SerializeField] public Transform PlayerSpawnPosition { get; private set; }
         public List<IDisposable> Disposables { get; private set; } = new();
-
-        private void Start()
-        {
-            GlobalMusicManager.Instance.SetAmbientAudio(StartingLevelMusic);
-        }
 
         public void AddDisposable(IDisposable disposable)
         {

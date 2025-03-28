@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de28fb11b6e1420daa0d210370fe6456, type: 3}
+  m_Name: ShelvesDialogPart_2
+  m_EditorClassIdentifier: 
+  CharacterName: Player
+  DialogString: '"nj gbpltw'
+  CharacterIcon: {fileID: 21300000, guid: 04cedfabfa113a5478249f43a2779bf7, type: 3}

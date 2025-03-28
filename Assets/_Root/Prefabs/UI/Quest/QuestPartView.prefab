@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3752768090176301127}
-  - component: {fileID: 2078879894110196795}
+  - component: {fileID: 587791511915855373}
   m_Layer: 0
   m_Name: QuestPartView
   m_TagString: Untagged
@@ -39,7 +39,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1099, y: 100}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &2078879894110196795
+--- !u!114 &587791511915855373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,10 +48,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 40997178999985064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24deec41afe0769409b2469e0b69f4c2, type: 3}
+  m_Script: {fileID: 11500000, guid: ed804e549fb1418e918e09b9019d579e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questPartCompleted: {fileID: 551144456224622455}
+  _partCompleted: {fileID: 551144456224622455}
   _questPartName: {fileID: 4005689120661667519}
   _questPartProgress: {fileID: 4694499252548426411}
 --- !u!1 &401854053921827921

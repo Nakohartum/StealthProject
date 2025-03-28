@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1038131228468396093}
   - component: {fileID: 3909221753565093941}
   - component: {fileID: -8838740692135341331}
+  - component: {fileID: 5949103670348216558}
+  - component: {fileID: 7541416735512453865}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -92,13 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineObject: {fileID: 3750508247723562111}
-  _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
-  _audioClips:
-  - Key: 0
-    Value: {fileID: 8300000, guid: 174d433a54ad71e4e8cb5c03263a7d73, type: 3}
-  _interactSound: {fileID: -8838740692135341331}
 --- !u!82 &-8838740692135341331
 AudioSource:
   m_ObjectHideFlags: 0
@@ -195,6 +190,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5949103670348216558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013164537012781913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a74f99d99b84a93ab75fcbf5a94da62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineFx: {fileID: 3750508247723562111}
+  _audioSource: {fileID: -8838740692135341331}
+  _onClip: {fileID: 8300000, guid: 174d433a54ad71e4e8cb5c03263a7d73, type: 3}
+  _loopClip: {fileID: 0}
+  _offClip: {fileID: 8300000, guid: 174d433a54ad71e4e8cb5c03263a7d73, type: 3}
+  _dialog: {fileID: 0}
+--- !u!114 &7541416735512453865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013164537012781913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 5949103670348216558}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
 --- !u!1 &8184799460740786235
 GameObject:
   m_ObjectHideFlags: 0

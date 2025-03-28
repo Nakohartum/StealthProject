@@ -1,52 +1,43 @@
-﻿using System;
-using _Root.Code.Health;
+﻿using _Root.Code.Health;
 using _Root.Code.Input;
 using _Root.Code.MoveFeature;
-using _Root.Code.SaveManager;
 using Cinemachine;
 using UnityEngine;
 using Zenject;
 
 namespace GameOne.Player
 {
-    //TODO: REFACTOR FACTORY
-    public class PlayerFactory : IFactory<PlayerView>
+    public class PlayerFactory : IFactory<Transform, PlayerController>
     {
-        private readonly DiContainer _container;
-        private readonly PlayerSO _playerSo;
-        private Transform _parent;
-        private SignalBus _signalBus;
+        private PlayerView _playerPrefab;
+        private DiContainer _container;
+        private readonly InputController _inputController;
+        private PlayerSO _playerSo;
+        private CinemachineTargetGroup _targetGroup;
+        private TickableManager _tickableManager;
 
-        public PlayerFactory(DiContainer container, PlayerSO playerSo, Transform parent, SignalBus signalBus)
+        public PlayerFactory(PlayerView playerPrefab, DiContainer container, InputController inputController, PlayerSO playerSo, CinemachineTargetGroup targetGroup, TickableManager tickableManager)
         {
+            _playerPrefab = playerPrefab;
             _container = container;
+            _inputController = inputController;
             _playerSo = playerSo;
-            _parent = parent;
-            _signalBus = signalBus;
+            _targetGroup = targetGroup;
+            _tickableManager = tickableManager;
         }
-
-        public PlayerView Create()
+        public PlayerController Create(Transform spawnPoint)
         {
-            var targetGroup = _container.Resolve<CinemachineTargetGroup>();
-            var playerGo = _container.InstantiatePrefab(_playerSo.PlayerPrefab, _parent);
-            playerGo.transform.SetParent(_parent);
-            var playerView = playerGo.GetComponent<PlayerView>();
-            _signalBus.Fire(new PlayerCreatedSignal
-            {
-                PlayerView = playerView,
-            });
-            _container.BindInstance(playerView);
-            targetGroup.AddMember(playerGo.transform, 1f, 5f);
             var health = new Health(_playerSo.HealthSO.MaxHeatlh);
-            var playerModel = new PlayerModel(_playerSo.PlayerSpeed, health, _playerSo.StepSounds);
-            var moveController = new PhysicsMovement(playerView.Rigidbody, playerModel.Speed);
-            var inputController = _container.Resolve<InputController>();
-            var controller = new PlayerController(playerView, inputController, playerModel, moveController);
-            _container.BindInstance(controller);
-            var interactiveChecker = new InteractiveObjectsChecker(playerView.Rigidbody, _playerSo.CheckingRadius, inputController);
-            var tickableManager = _container.Resolve<TickableManager>();
-            tickableManager.Add(interactiveChecker);
-            return playerView;
+            var model = new PlayerModel(_playerSo.PlayerSpeed, health, _playerSo.StepSounds);
+            var playerView =
+                _container.InstantiatePrefabForComponent<PlayerView>(_playerPrefab, spawnPoint.position, Quaternion.identity, null);
+            var moveController = new PhysicsMovement(playerView.Rigidbody, model.Speed);
+            var controller = _container.Instantiate<PlayerController>( new object[]{playerView, _inputController, model, moveController});
+            var interactiveObjectChecker =
+                new InteractiveObjectsChecker(playerView.Rigidbody, _playerSo.CheckingRadius, _inputController);
+            _tickableManager.Add(interactiveObjectChecker);
+            _targetGroup.AddMember(playerView.transform, 1f,5f);
+            return controller;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using _Root.Code.InteractiveObjects;
 using _Root.Code.Miscellanious;
 using UnityEngine;
 using EventType = _Root.Code.Miscellanious.EventType;
@@ -7,10 +8,8 @@ namespace _Root.Code.EventAnswering
 {
     public class ActivateSoundsOnEvent : MonoBehaviour
     {
-        [SerializeField] private AudioSource _audioSource;
-        [SerializeField] private AudioClip _activateSound;
+        [SerializeField] private InteractableObject _interactableObject;
         [SerializeField] private EventType _eventType;
-        [SerializeField] private bool _looping;
 
         private void Start()
         {
@@ -19,12 +18,7 @@ namespace _Root.Code.EventAnswering
 
         private void ActivateSound()
         {
-            if (_activateSound != null)
-            {
-                _audioSource.loop = _looping;
-                _audioSource.clip = _activateSound;
-                _audioSource.Play();
-            }
+            _interactableObject.StartMusic();
         }
 
         private void OnDestroy()

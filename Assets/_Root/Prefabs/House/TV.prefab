@@ -110,6 +110,8 @@ GameObject:
   - component: {fileID: 8120780087620625714}
   - component: {fileID: 148793738990788785}
   - component: {fileID: 1911328661653332781}
+  - component: {fileID: 8816224353873121613}
+  - component: {fileID: 8665001808384198698}
   m_Layer: 0
   m_Name: TV
   m_TagString: Untagged
@@ -190,17 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineObject: {fileID: 4961200356308437009}
-  _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
-  _audioClips:
-  - Key: 0
-    Value: {fileID: 0}
-  - Key: 1
-    Value: {fileID: 8300000, guid: bb093145501977147b473fceb655920e, type: 3}
-  - Key: 0
-    Value: {fileID: 0}
-  _interactSound: {fileID: 1911328661653332781}
 --- !u!82 &1911328661653332781
 AudioSource:
   m_ObjectHideFlags: 0
@@ -297,3 +288,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8816224353873121613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703511019783039049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a74f99d99b84a93ab75fcbf5a94da62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineFx: {fileID: 4961200356308437009}
+  _audioSource: {fileID: 1911328661653332781}
+  _onClip: {fileID: 0}
+  _loopClip: {fileID: 8300000, guid: bb093145501977147b473fceb655920e, type: 3}
+  _offClip: {fileID: 0}
+  _dialog: {fileID: 0}
+--- !u!114 &8665001808384198698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703511019783039049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 8816224353873121613}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}

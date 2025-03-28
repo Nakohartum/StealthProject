@@ -8,6 +8,7 @@ namespace GameOne.Player
         public AudioClip[] StepSounds { get; set; }
         public float Speed {get; set;}
         public Health Health {get; set;}
+        public Vector3 Position {get; set;}
 
         public PlayerModel(float speed, Health health, AudioClip[] stepSounds)
         {

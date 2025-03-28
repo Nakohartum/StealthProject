@@ -131,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 287181056556435117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f61c1739647d4f83a07a7857d3cdd2fa, type: 3}
+  m_Script: {fileID: 11500000, guid: a423d2c64fac41a8979c56c9c58b3a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Button>k__BackingField: {fileID: 3509103020757153185}
@@ -318,12 +318,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2549631440348328833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6e691a76454fd0ad463eb9da8abb0b, type: 3}
+  m_Script: {fileID: 11500000, guid: b9ec6579976448009a588e94a0c5fa83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playButton: {fileID: 5954999920072341554}
-  _settingsButton: {fileID: 7471299361158622499}
-  _exitButton: {fileID: 4748166907389666563}
+  <StartGameButton>k__BackingField: {fileID: 5954999920072341554}
+  <SettingsButton>k__BackingField: {fileID: 7471299361158622499}
+  <ExitGameButton>k__BackingField: {fileID: 4748166907389666563}
 --- !u!1 &2636087885733079271
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,10 +629,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3555353477095209694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f61c1739647d4f83a07a7857d3cdd2fa, type: 3}
+  m_Script: {fileID: 11500000, guid: a423d2c64fac41a8979c56c9c58b3a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Button>k__BackingField: {fileID: 3509103020757153185}
+  <Button>k__BackingField: {fileID: 8652565093657724568}
   <Text>k__BackingField: {fileID: 7568090343453072394}
   _hoverTextColor: {r: 1, g: 0, b: 0, a: 1}
   _defaultColor: {r: 0, g: 1, b: 0, a: 1}
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4265400068397786934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f61c1739647d4f83a07a7857d3cdd2fa, type: 3}
+  m_Script: {fileID: 11500000, guid: a423d2c64fac41a8979c56c9c58b3a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Button>k__BackingField: {fileID: 5171019748568788069}

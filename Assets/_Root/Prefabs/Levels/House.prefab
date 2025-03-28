@@ -2845,7 +2845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StartingLevelMusic>k__BackingField: {fileID: 8300000, guid: b10d356ac3af2df458851f322e7a8250, type: 3}
-  <StartingCutscene>k__BackingField: {fileID: 0}
+  <StartingCutsceneName>k__BackingField: 
   <PlayerSpawnPosition>k__BackingField: {fileID: 1755362292574135881}
 --- !u!1 &6723875214340586358
 GameObject:

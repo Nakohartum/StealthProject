@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1877957493749451958}
   - component: {fileID: 5537616343467831713}
   - component: {fileID: 3288547639148951457}
+  - component: {fileID: 5717285438438865687}
+  - component: {fileID: 847981328142063623}
   m_Layer: 0
   m_Name: KitchenSink
   m_TagString: Untagged
@@ -92,17 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineObject: {fileID: 567454947927715409}
-  _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
-  _audioClips:
-  - Key: 0
-    Value: {fileID: 0}
-  - Key: 1
-    Value: {fileID: 8300000, guid: b1ede747420c5f440ae07294161f2359, type: 3}
-  - Key: 0
-    Value: {fileID: 0}
-  _interactSound: {fileID: 3288547639148951457}
 --- !u!82 &3288547639148951457
 AudioSource:
   m_ObjectHideFlags: 0
@@ -199,6 +190,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5717285438438865687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280168682371086763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 847981328142063623}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &847981328142063623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280168682371086763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a74f99d99b84a93ab75fcbf5a94da62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineFx: {fileID: 567454947927715409}
+  _audioSource: {fileID: 3288547639148951457}
+  _onClip: {fileID: 8300000, guid: 2cfbdbd4b033e67498bf91ef67aa0849, type: 3}
+  _loopClip: {fileID: 8300000, guid: b1ede747420c5f440ae07294161f2359, type: 3}
+  _offClip: {fileID: 8300000, guid: 4f9d7f69aef385145b3bc0ba816aca93, type: 3}
+  _dialog: {fileID: 0}
 --- !u!1 &4153960887475851652
 GameObject:
   m_ObjectHideFlags: 0

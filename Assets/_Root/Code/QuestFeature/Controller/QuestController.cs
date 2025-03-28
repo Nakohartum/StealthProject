@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using _Root.Code.Miscellanious;
 using _Root.Code.QuestFeature.Model;
-using _Root.Code.UI;
-using ModestTree.Util;
-using UnityEngine;
+using _Root.Code.QuestFeature.View;
+using Zenject;
 using Object = UnityEngine.Object;
 
 namespace _Root.Code.QuestFeature.Controller
@@ -12,27 +11,32 @@ namespace _Root.Code.QuestFeature.Controller
     public class QuestController : IDisposable
     {
         private QuestModel _questModel;
-        private QuestView _questView;
-        private UIManager _uiManager;
-        private List<QuestPartView> _currentQuestParts = new List<QuestPartView>();
+        private readonly QuestView _questView;
+        private QuestPartView.QuestPartViewFactory _questPartViewFactory;
+        private List<QuestPartView> _currentQuestParts = new();
         public event Action<QuestController> OnQuestCompleted;
 
-        public QuestController(QuestModel questModel, QuestView questView, 
-            UIManager uiManager)
+        [Inject]
+        public QuestController(QuestModel questModel, QuestView questView, QuestPartView.QuestPartViewFactory questPartViewFactory)
         {
             _questModel = questModel;
             _questView = questView;
-            _uiManager = uiManager;
-            InitializeQuestView();
+            _questPartViewFactory = questPartViewFactory;
             SubscribeToEvent();
         }
 
-        private void InitializeQuestView()
+        public void StartQuest()
         {
+            InitializeQuestView();
+        }
+        
+        private void InitializeQuestView()
+        { 
             _questView.SetTitle(_questModel.Name);
             for (int i = 0; i < _questModel.Parts.Length; i++)
             {
-                var questPartView = _uiManager.CreateQuestPartView(_questView.QuestPartsContainer);
+                var questPartView = _questPartViewFactory.Create();
+                questPartView.gameObject.transform.SetParent(_questView.QuestPartsContainer);
                 _currentQuestParts.Add(questPartView);
                 UpdateQuestPartView(questPartView, _questModel.Parts[i]);
             }
@@ -44,21 +48,20 @@ namespace _Root.Code.QuestFeature.Controller
             {
                 UpdateQuestPartView(_currentQuestParts[i], _questModel.Parts[i]);
             }
-        }
-        
+        } 
         private void UpdateQuestPartView(QuestPartView questPartView, QuestPart questPart)
-        {
-            questPartView.SetQuestPartCompleted(questPart.IsDone);
-            questPartView.SetQuestPartName(questPart.Description);
-            if (questPart is PickupQuestPart pickupQuestPart)
-            {
-                questPartView.SetQuestPartProgress($"{pickupQuestPart.CurrentAmount}/{pickupQuestPart.TargetAmount}");
-            }
-            else
-            {
-                questPartView.SetQuestPartProgress(string.Empty);
-            }
-        }
+         {
+             questPartView.SetQuestPartCompleted(questPart.IsDone);
+             questPartView.SetQuestPartName(questPart.Description);
+             if (questPart is PickupQuestPart pickupQuestPart)
+             {
+                 questPartView.SetQuestPartProgress($"{pickupQuestPart.CurrentAmount}/{pickupQuestPart.TargetAmount}");
+             }
+             else
+             {
+                 questPartView.SetQuestPartProgress(string.Empty);
+             }
+         }
 
         private void SubscribeToEvent()
         {
@@ -88,7 +91,6 @@ namespace _Root.Code.QuestFeature.Controller
                 }
             }
             CheckQuestCompleted();
-            Debug.Log("LocationAchieved");
         }
 
         private void CheckQuestCompleted()

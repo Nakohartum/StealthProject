@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using _Root.Code.LevelManager;
 using _Root.Code.QuestFeature.Model;
-using _Root.Code.UI;
+using _Root.Code.QuestFeature.View;
 using UnityEngine;
 using Zenject;
 
@@ -10,33 +10,22 @@ namespace _Root.Code.QuestFeature.Controller
 {
     public class QuestManager
     {
-        private static QuestManager _instance;
         private List<QuestController> _activeQuests = new List<QuestController>();
-        private UIManager _uiManager;
+        private QuestView.QuestViewFactory _questViewFactory;
+        private DiContainer _container;
         
-        
-        private QuestManager()
+        [Inject]
+        private QuestManager(QuestView.QuestViewFactory questViewFactory, DiContainer container)
         {
-            
-        }
-
-        public void Initialize(UIManager uiManager)
-        {
-            _uiManager = uiManager;
-        }
-
-        public static QuestManager Instance
-        {
-            get
-            {
-                return _instance ??= new QuestManager();
-            }
+            _questViewFactory = questViewFactory;
+            _container = container;
         }
 
         public void StartQuest(QuestData questData)
         {
-            var questView = _uiManager.CreateQuestView();
-            var questController = new QuestController(CreateQuest(questData), questView, _uiManager);
+            var questView = _questViewFactory.Create();
+            var questController = _container.Instantiate<QuestController>(new object[] {CreateQuest(questData), questView});
+            questController.StartQuest();
             questController.OnQuestCompleted += QuestFinished;
             _activeQuests.Add(questController);
         }

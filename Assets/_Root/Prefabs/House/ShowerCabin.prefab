@@ -110,6 +110,8 @@ GameObject:
   - component: {fileID: 7040387631078754016}
   - component: {fileID: 404783083542683628}
   - component: {fileID: 5371550803345123210}
+  - component: {fileID: -5133764156000223386}
+  - component: {fileID: 8567246581945469078}
   m_Layer: 0
   m_Name: ShowerCabin
   m_TagString: Untagged
@@ -190,17 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbc53ae54154dc19ff15ca3548ce011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineObject: {fileID: 4516054231522653628}
-  _animator: {fileID: 0}
-  _dialogSo: {fileID: 0}
-  _audioClips:
-  - Key: 0
-    Value: {fileID: 0}
-  - Key: 1
-    Value: {fileID: 8300000, guid: 82acfc99d78bc784aa66b393e4f63f05, type: 3}
-  - Key: 0
-    Value: {fileID: 0}
-  _interactSound: {fileID: 5371550803345123210}
 --- !u!82 &5371550803345123210
 AudioSource:
   m_ObjectHideFlags: 0
@@ -297,3 +288,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5133764156000223386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214366106720292622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a74f99d99b84a93ab75fcbf5a94da62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineFx: {fileID: 4516054231522653628}
+  _audioSource: {fileID: 5371550803345123210}
+  _onClip: {fileID: 8300000, guid: 2cfbdbd4b033e67498bf91ef67aa0849, type: 3}
+  _loopClip: {fileID: 8300000, guid: 82acfc99d78bc784aa66b393e4f63f05, type: 3}
+  _offClip: {fileID: 8300000, guid: 4f9d7f69aef385145b3bc0ba816aca93, type: 3}
+  _dialog: {fileID: 0}
+--- !u!114 &8567246581945469078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214366106720292622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: -5133764156000223386}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}

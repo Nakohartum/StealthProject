@@ -43,6 +43,7 @@ namespace _Root.Code.InteractiveObjects.InteractionStrategy
                     SetupAudioSource(_offClip);
                     _audioSource.Play();
                 }
+                _isToggled = false;
             }
         }
 

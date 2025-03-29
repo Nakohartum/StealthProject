@@ -1,5 +1,6 @@
 ﻿using System;
 using _Root.Code.MainMenuFeature.View;
+using _Root.Code.Miscellanious;
 using UnityEngine;
 using Zenject;
 
@@ -33,7 +34,7 @@ namespace _Root.Code.MainMenuFeature.Presenter
 
         private void StartGame()
         {
-            _levelManager.InitLevel("HomeLevel");
+            _levelManager.InitLevel(InGameStrings.FIRST_LEVEL);
             UnityEngine.Object.Destroy(_view.gameObject);
             Dispose();
         }

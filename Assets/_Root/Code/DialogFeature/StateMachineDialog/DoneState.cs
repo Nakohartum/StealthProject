@@ -20,12 +20,10 @@ namespace _Root.Code.DialogFeature.StateMachineDialog
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
         }
 
         public void OnInput()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

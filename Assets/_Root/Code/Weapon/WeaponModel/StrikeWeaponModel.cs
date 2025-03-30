@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameOne.Weapon.WeaponModel
 {
-    public class StrikeWeaponModel : MonoBehaviour
+    public class StrikeWeaponModel
     {
         public AudioClip[] FireSounds { get; set; }
 

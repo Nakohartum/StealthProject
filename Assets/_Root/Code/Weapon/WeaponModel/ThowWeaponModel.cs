@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameOne.Weapon.WeaponModel
 {
-    public class ThowWeaponModel : MonoBehaviour
+    public class ThowWeaponModel
     {
         public AudioClip[] ExplodeSounds { get; set; }
         

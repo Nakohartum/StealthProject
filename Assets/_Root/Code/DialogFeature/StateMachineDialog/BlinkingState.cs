@@ -1,5 +1,8 @@
-﻿using _Root.Code.DialogFeature.Presenter;
+﻿using System;
+using System.Threading;
+using _Root.Code.DialogFeature.Presenter;
 using _Root.Code.DialogFeature.View;
+using Cysharp.Threading.Tasks;
 
 namespace _Root.Code.DialogFeature.StateMachineDialog
 {
@@ -7,6 +10,7 @@ namespace _Root.Code.DialogFeature.StateMachineDialog
     {
         private DialogView _dialogView;
         private DialogPresenter _dialogPresenter;
+        private CancellationTokenSource _cts;
 
         public BlinkingState(DialogView dialogView, DialogPresenter dialogPresenter)
         {
@@ -16,7 +20,19 @@ namespace _Root.Code.DialogFeature.StateMachineDialog
         
         public void Enter()
         {
-            _dialogView.StartBlinkLabel();
+            _cts = new CancellationTokenSource();
+            BlinkLoop().Forget();
+        }
+
+        private async UniTask BlinkLoop()
+        {
+            try
+            {
+                await _dialogView.ShowNextLabelAsync(_cts.Token);
+            }
+            catch (OperationCanceledException e)
+            {
+            }
         }
 
         public void Exit()
@@ -26,7 +42,7 @@ namespace _Root.Code.DialogFeature.StateMachineDialog
 
         public void OnInput()
         {
-            _dialogView.StopBlinking();
+            _cts?.Cancel();
             if (_dialogPresenter.NextPartAvailable())
             {
                 _dialogPresenter.ShowNextPart();

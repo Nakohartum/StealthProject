@@ -93,9 +93,552 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: floor_in_house_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 135
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2758c57d18b0d4a9aa0b31e849a881
+      internalID: -853636447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 135
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86dba464f4bfcd747929577c00ee0394
+      internalID: 1983486172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 135
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570559042e44f4e45b32f533dfbf2c06
+      internalID: -429758809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 135
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e2466af2c58d946b63645654edcbea
+      internalID: 525430908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_4
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 135
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91a92fd61853594d808280bda8a56ce
+      internalID: 791563761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_5
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 135
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c5311b9538387408567ba75374ad3e
+      internalID: -952235788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 90
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ac84ec3a5831c498c65e6afcfd8e06
+      internalID: -691427489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_7
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 90
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f59714f86f50e47a140e3aa214143c
+      internalID: -1433223254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_8
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 90
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 955b768fef46fdd45a832d9f045520cc
+      internalID: -1550115950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_9
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 90
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502116e1882bdd742b82c4f85282056c
+      internalID: 877635966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_10
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 90
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1fa97ed16d4a6429599a73b1d38208
+      internalID: -1367102269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_11
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 90
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e2388dd7f92f14a938a3e953f539d6
+      internalID: -2107302148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 45
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295ab9fc8ca50b8489c9604384485f02
+      internalID: -1703632014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_13
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 45
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eaf915970437074f82eb458b88850a5
+      internalID: -1180788523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_14
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 45
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36323fe50dddfea4aacb948199c5b2e1
+      internalID: 1432778580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_15
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 45
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b1e2814ce2b2e40b416e25f5e27d92
+      internalID: 2088408114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_16
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 45
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b91d28be63039345b5c7b1cc26137fe
+      internalID: 1106658339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_17
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 45
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59ef955d7f6f5f4e8f189899cdf558e
+      internalID: 695441969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc592e8c3d831944a2018cd89f4f805
+      internalID: -1845674372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_19
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 0
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469d724c443458a4a8c37b3fa9f68028
+      internalID: -1552757176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_20
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 0
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e0fe6523b00a24aa46d57f06bc94cb
+      internalID: 780253872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9caa2f450bda4274b92bdf2e00dbac94
+      internalID: 866921874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_22
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 0
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f07a5122cbe6d43b67c5f1986ae068
+      internalID: 594236652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_in_house_23
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 0
+        width: 53.333332
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0eb8984abf8060418d2a7bc8ab89418
+      internalID: 2002501515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +649,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      floor_in_house_0: -853636447
+      floor_in_house_1: 1983486172
+      floor_in_house_10: -1367102269
+      floor_in_house_11: -2107302148
+      floor_in_house_12: -1703632014
+      floor_in_house_13: -1180788523
+      floor_in_house_14: 1432778580
+      floor_in_house_15: 2088408114
+      floor_in_house_16: 1106658339
+      floor_in_house_17: 695441969
+      floor_in_house_18: -1845674372
+      floor_in_house_19: -1552757176
+      floor_in_house_2: -429758809
+      floor_in_house_20: 780253872
+      floor_in_house_21: 866921874
+      floor_in_house_22: 594236652
+      floor_in_house_23: 2002501515
+      floor_in_house_3: 525430908
+      floor_in_house_4: 791563761
+      floor_in_house_5: -952235788
+      floor_in_house_6: -691427489
+      floor_in_house_7: -1433223254
+      floor_in_house_8: -1550115950
+      floor_in_house_9: 877635966
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

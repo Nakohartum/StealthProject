@@ -15,6 +15,7 @@ namespace _Root.Code.MoveFeature
 
         public void Move(Vector2 movement)
         {
+            
             if (movement.magnitude > 0)
             {
                 PerformMove(movement);
@@ -25,7 +26,6 @@ namespace _Root.Code.MoveFeature
         {
             Vector2 oldPosition = _rigidbody.transform.position;
             var currentPosition = movement * _speed;
-            currentPosition = Vector2.MoveTowards(currentPosition, Vector2.zero, 0);
             _rigidbody.MovePosition(oldPosition+currentPosition);
         }
     }

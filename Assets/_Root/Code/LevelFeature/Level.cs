@@ -33,5 +33,19 @@ namespace _Root.Code.LevelManager
                 disposable.Dispose();
             }
         }
+
+        public Bounds GetLevelBounds()
+        {
+            var renderers = GetComponentsInChildren<Renderer>(true);
+            if (renderers.Length == 0)
+                return new Bounds(transform.position, Vector3.zero);
+            Bounds bounds = renderers[0].bounds;
+            foreach (var renderer in renderers)
+            {
+                bounds.Encapsulate(renderer.bounds);
+            }
+
+            return bounds;
+        }
     }
 }

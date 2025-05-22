@@ -1,4 +1,5 @@
 ﻿using System;
+using _Root.Code.GlobalMusicFeature.GlobalMusicPresenter;
 using _Root.Code.MainMenuFeature.View;
 using _Root.Code.Miscellanious;
 using UnityEngine;
@@ -10,12 +11,17 @@ namespace _Root.Code.MainMenuFeature.Presenter
     {
         private MainMenuView _view;
         private GlobalManagers.LevelManager _levelManager;
+        private GlobalMusicPresenter _globalMusicPresenter;
+        private AudioClip _mainMenuMusic;
         
-        public MainMenuPresenter(MainMenuView view, GlobalManagers.LevelManager levelManager)
+        public MainMenuPresenter(MainMenuView view, GlobalManagers.LevelManager levelManager, GlobalMusicPresenter globalMusicPresenter, AudioClip mainMenuMusic)
         {
             _view = view;
             _levelManager = levelManager;
+            _globalMusicPresenter = globalMusicPresenter;
+            _mainMenuMusic = mainMenuMusic;
             SubscribeToButtons();
+            _globalMusicPresenter.StartMusic(_mainMenuMusic, true);
         }
 
         private void SubscribeToButtons()
@@ -34,6 +40,7 @@ namespace _Root.Code.MainMenuFeature.Presenter
 
         private void StartGame()
         {
+            _globalMusicPresenter.StopMusic();
             _levelManager.InitLevel(InGameStrings.FIRST_LEVEL);
             UnityEngine.Object.Destroy(_view.gameObject);
             Dispose();

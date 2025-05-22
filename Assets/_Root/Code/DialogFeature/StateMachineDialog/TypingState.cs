@@ -1,5 +1,8 @@
-﻿using _Root.Code.DialogFeature.Presenter;
+﻿using System;
+using System.Threading;
+using _Root.Code.DialogFeature.Presenter;
 using _Root.Code.DialogFeature.View;
+using Cysharp.Threading.Tasks;
 
 namespace _Root.Code.DialogFeature.StateMachineDialog
 {
@@ -7,6 +10,7 @@ namespace _Root.Code.DialogFeature.StateMachineDialog
     {
         private DialogPresenter _dialogPresenter;
         private DialogView _dialogView;
+        private CancellationTokenSource _cts;
 
         public TypingState(DialogPresenter dialogPresenter, DialogView dialogView)
         {
@@ -15,23 +19,33 @@ namespace _Root.Code.DialogFeature.StateMachineDialog
         }
         public void Enter()
         {
+            _cts = new CancellationTokenSource();
             var part = _dialogPresenter.CurrentDialogPart;
-            _dialogView.ShowDialog(part.CharacterName, part.DialogString, part.CharacterIcon, OnTypingComplete);
+            _dialogView.SetDialogMeta(part.CharacterName, part.CharacterIcon);
+            TypeText(part.DialogString).Forget();
         }
 
-        private void OnTypingComplete()
+        private async UniTaskVoid TypeText(string text)
         {
-            _dialogPresenter.DialogStateMachine.ChangeState(DialogState.Blinking);
+            try
+            {
+                await _dialogView.ShowDialogAsync(text, _cts.Token);
+                _dialogPresenter.DialogStateMachine.ChangeState(DialogState.Blinking);
+            }
+            catch (OperationCanceledException)
+            {
+                
+            }
         }
 
         public void Exit()
         {
-            
+            _cts?.Cancel();
         }
 
         public void OnInput()
         {
-            _dialogView.StopShowingDialog();
+            _cts?.Cancel();
             _dialogView.ShowLine(_dialogPresenter.CurrentDialogPart.DialogString);
             _dialogPresenter.DialogStateMachine.ChangeState(DialogState.Blinking);
         }

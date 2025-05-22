@@ -1590,7 +1590,7 @@ MonoBehaviour:
   _cellSize: 0.5
   _layerMask:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 247
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

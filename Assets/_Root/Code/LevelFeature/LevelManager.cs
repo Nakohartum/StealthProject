@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using _Root.Code.AStar.Pathfinder;
 using _Root.Code.CutsceneFeature.Manager;
+using _Root.Code.LevelFeature;
 using _Root.Code.LevelManager;
 using GameOne.Player;
 using UnityEngine;
@@ -17,15 +20,18 @@ namespace _Root.Code.GlobalManagers
         private CutsceneManager _cutsceneManager;
         private DiContainer _container;
         private IFactory<Transform, PlayerController> _playerFactory;
+        private PathfinderPresenter _pathfinderPresenter;
+        public event Action OnLevelLoaded;
 
         [Inject]
-        public LevelManager(Transform levelsRoot, LevelSO[] levels, CutsceneManager cutsceneManager, DiContainer container, IFactory<Transform, PlayerController> playerFactory)
+        public LevelManager(Transform levelsRoot, LevelSO[] levels, CutsceneManager cutsceneManager, DiContainer container, IFactory<Transform, PlayerController> playerFactory, PathfinderPresenter pathfinderPresenter)
         {
             _levelsRoot = levelsRoot;
             _levels = levels;
             _cutsceneManager = cutsceneManager;
             _container = container;
             _playerFactory = playerFactory;
+            _pathfinderPresenter = pathfinderPresenter;
         }
 
         private void DestroyLevel()
@@ -50,6 +56,13 @@ namespace _Root.Code.GlobalManagers
             {
                 _cutsceneManager.StartCutscene(CurrentLevelObject.StartingCutsceneName);
             }
+
+            var levelBounds = CurrentLevelObject.GetLevelBounds();
+            var size = levelBounds.size;
+            var center = levelBounds.center;
+            _pathfinderPresenter.GenerateGrid(size, center);
+            _pathfinderPresenter.UpdateWalkable();
+            OnLevelLoaded?.Invoke();
         }
     }
 }

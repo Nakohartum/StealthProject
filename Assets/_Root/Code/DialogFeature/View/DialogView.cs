@@ -67,7 +67,6 @@ namespace _Root.Code.DialogFeature.View
                 
                 await UniTask.Yield(PlayerLoopTiming.Update, token);
             }
-            _nextLabel.alpha = 0.0f;
         }
 
         public void CloseDialog()

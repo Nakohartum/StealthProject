@@ -1,4 +1,6 @@
 ﻿using System;
+using _Root.Code.AStar;
+using _Root.Code.AStar.Pathfinder;
 using _Root.Code.Input;
 using _Root.Code.LevelManager;
 using _Root.Code.MainMenuFeature.MainMenuManager;

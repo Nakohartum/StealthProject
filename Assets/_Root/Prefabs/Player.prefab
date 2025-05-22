@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5963848345114148530}
   - component: {fileID: 5616344349361328361}
   - component: {fileID: 7540168822927578010}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7428408810220760171}
   - component: {fileID: 1005792430755791512}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CasperAtHome_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -30,7 +30,7 @@ namespace _Root.Code.DialogFeature.StateMachineDialog
             {
                 await _dialogView.ShowNextLabelAsync(_cts.Token);
             }
-            catch (OperationCanceledException e)
+            catch (OperationCanceledException)
             {
             }
         }

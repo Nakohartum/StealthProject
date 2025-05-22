@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3076001225471430978}
   - component: {fileID: 663708707026759988}
   - component: {fileID: 3354840863907551453}
-  - component: {fileID: 4221428694178283286}
+  - component: {fileID: 5521174424848557104}
   m_Layer: 0
   m_Name: Bedroom
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MonoBehaviour:
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!61 &4221428694178283286
+--- !u!61 &5521174424848557104
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.049103975, y: -0.07716322}
+  m_Offset: {x: 0, y: -0.03749764}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -128,7 +128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.681997, y: 3.763836}
+  m_Size: {x: 6.7496758, y: 3.8613608}
   m_EdgeRadius: 0
 --- !u!1 &4922346184200604029
 GameObject:

@@ -32,7 +32,7 @@ namespace _Root.Code.DialogFeature.StateMachineDialog
                 await _dialogView.ShowDialogAsync(text, _cts.Token);
                 _dialogPresenter.DialogStateMachine.ChangeState(DialogState.Blinking);
             }
-            catch (OperationCanceledException e)
+            catch (OperationCanceledException)
             {
                 
             }

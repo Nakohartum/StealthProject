@@ -10,7 +10,7 @@ namespace _Root.Code.AStar.Grid
         private int _height;
         private float _cellSize;
 
-        public Grid(int width, int height, float cellSize, Vector3 origin)
+        public Grid(int width, int height, float cellSize, Vector3 origin, LayerMask layerMask)
         {
             _width = width;
             _height = height;
@@ -20,7 +20,7 @@ namespace _Root.Code.AStar.Grid
             {
                 for (int y = 0; y < _height; y++)
                 {
-                    _grid[x, y] = CreateNode(x,y, origin);
+                    _grid[x, y] = CreateNode(x,y, origin, layerMask);
                 }
             }
         }
@@ -34,7 +34,14 @@ namespace _Root.Code.AStar.Grid
 
         public IEnumerable<Node> GetNeighbors(Node node)
         {
-            var dirs = new[] { (0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (-1, 1), (1, -1), (-1, -1), };
+            var dirs = new (int dx, int dy)[] {
+                (-1,  0), // left
+                ( 1,  0), // right
+                ( 0, -1), // down
+                ( 0,  1), // up
+                (-1, -1), (1, -1), // diagonals
+                (-1,  1), (1,  1)
+            };
             foreach (var (dx, dy) in dirs)
             {
                 int nx = node.X + dx;
@@ -46,11 +53,18 @@ namespace _Root.Code.AStar.Grid
             }
         }
         
-        private Node CreateNode(int x, int y, Vector3 origin)
+        private Node CreateNode(int x, int y, Vector3 origin, LayerMask layerMask)
         {
             Vector3 worldPosition = origin + new Vector3(x * _cellSize, y * _cellSize, 0);
-            bool walkable = !Physics2D.OverlapCircle(worldPosition, _cellSize * 0.4f);
+            var hit = Physics2D.OverlapCircle(worldPosition, _cellSize * 0.4f, layerMask);
+            bool walkable = hit == null || hit.isTrigger;
+            
             return new Node(x, y, walkable);
+        }
+
+        public bool IsInBounds(int x, int y)
+        {
+            return x >= 0 && y >= 0 && x < _width && y < _height;
         }
     }
 }

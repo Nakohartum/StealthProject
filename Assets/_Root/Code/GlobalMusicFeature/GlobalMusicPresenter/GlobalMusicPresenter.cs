@@ -18,5 +18,10 @@ namespace _Root.Code.GlobalMusicFeature.GlobalMusicPresenter
             AudioSource.loop = loop;
             AudioSource.Play();
         }
+
+        public void StopMusic()
+        {
+            AudioSource.Stop();
+        }
     }
 }

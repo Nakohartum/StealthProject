@@ -9,9 +9,10 @@ namespace _Root.Code.AStar.Pathfinder
     {
         public List<Node> FindPath(Node start, Node goal, Grid.Grid grid)
         {
-            var openSet = new List<Node>(){start};
+            var openSet = new List<Node> { start };
             var closedSet = new HashSet<Node>();
-            foreach (var node in openSet)
+
+            foreach (var node in grid.GetRawNodes())
             {
                 node.GCost = int.MaxValue;
                 node.HCost = 0;
@@ -20,6 +21,7 @@ namespace _Root.Code.AStar.Pathfinder
 
             start.GCost = 0;
             start.HCost = GetHeuristic(start, goal);
+
             while (openSet.Count > 0)
             {
                 Node current = GetLowestCost(openSet);
@@ -27,29 +29,32 @@ namespace _Root.Code.AStar.Pathfinder
                 {
                     return RetracePath(start, goal);
                 }
+
                 openSet.Remove(current);
                 closedSet.Add(current);
 
                 foreach (var neighbor in grid.GetNeighbors(current))
                 {
-                    if (!neighbor.IsWalkable || closedSet.Contains(neighbor))
-                    {
+                    if (!grid.IsInBounds(neighbor.X, neighbor.Y) || !neighbor.IsWalkable || closedSet.Contains(neighbor))
                         continue;
-                    }
 
                     int dx = neighbor.X - current.X;
                     int dy = neighbor.Y - current.Y;
 
+                    // Проверка на блоки при диагональном движении
                     if (Mathf.Abs(dx) == 1 && Mathf.Abs(dy) == 1)
                     {
+                        if (!grid.IsInBounds(current.X + dx, current.Y) ||
+                            !grid.IsInBounds(current.X, current.Y + dy))
+                            continue;
+
                         Node nodeA = grid.GetNode(current.X + dx, current.Y);
                         Node nodeB = grid.GetNode(current.X, current.Y + dy);
                         if (!nodeA.IsWalkable || !nodeB.IsWalkable)
-                        {
                             continue;
-                        }
                     }
-                    int tentativeG = current.GCost + GetHeuristic(current, neighbor);
+
+                    int tentativeG = current.GCost + GetDistance(current, neighbor);
                     if (tentativeG < neighbor.GCost || !openSet.Contains(neighbor))
                     {
                         neighbor.GCost = tentativeG;
@@ -63,20 +68,29 @@ namespace _Root.Code.AStar.Pathfinder
                     }
                 }
             }
+
             return null;
         }
 
-        private int GetHeuristic(Node nodeA, Node nodeB)
+        private int GetHeuristic(Node a, Node b)
         {
-            int dx = Mathf.Abs(nodeA.X - nodeB.X);
-            int dy = Mathf.Abs(nodeA.Y - nodeB.Y);
-            
-            return 10 * Mathf.Max(dx, dy) + 4 * Mathf.Min(dx, dy);
+            int dx = Mathf.Abs(a.X - b.X);
+            int dy = Mathf.Abs(a.Y - b.Y);
+            int D = 10;
+            int D2 = 14;
+            return D * (dx + dy) + (D2 - 2 * D) * Mathf.Min(dx, dy);
+        }
+
+        private int GetDistance(Node a, Node b)
+        {
+            int dx = Mathf.Abs(a.X - b.X);
+            int dy = Mathf.Abs(a.Y - b.Y);
+            return (dx + dy) == 2 ? 14 : 10;
         }
 
         private List<Node> RetracePath(Node start, Node goal)
         {
-            List<Node> path = new List<Node>();
+            var path = new List<Node>();
             Node current = goal;
             while (current != start)
             {

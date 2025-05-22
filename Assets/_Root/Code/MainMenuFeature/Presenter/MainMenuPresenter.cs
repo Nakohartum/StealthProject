@@ -40,6 +40,7 @@ namespace _Root.Code.MainMenuFeature.Presenter
 
         private void StartGame()
         {
+            _globalMusicPresenter.StopMusic();
             _levelManager.InitLevel(InGameStrings.FIRST_LEVEL);
             UnityEngine.Object.Destroy(_view.gameObject);
             Dispose();

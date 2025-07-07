@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Root.Code.EnemyFeature.Enemy.EnemyPresenter;
+using _Root.Code.EnemyFeature.EnemyFOVFeature;
 using _Root.Code.EnemyFeature.EnemyState.State;
+using GameOne.Player;
+using UnityEngine;
 
 namespace _Root.Code.EnemyFeature.EnemyState
 {
@@ -17,12 +20,23 @@ namespace _Root.Code.EnemyFeature.EnemyState
             {
                 state.OnStateChange += SetState;
             }
+
+        }
+
+        public void SetChasingState(PlayerView obj)
+        {
+            var chasingState = SetState(EnemyState.Chasing);
+            (chasingState as ChasingState).SetTarget(obj == null ? null : obj.transform);
         }
 
         public IEnemyState SetState(EnemyState state)
         {
             if (_states.TryGetValue(state, out var value))
             {
+                if (value == _currentState)
+                {
+                    return _currentState;
+                }
                 _currentState?.Exit();
                 _currentState = value;
                 _currentState?.Enter();
@@ -32,6 +46,7 @@ namespace _Root.Code.EnemyFeature.EnemyState
 
         public void UpdateState()
         {
+            Debug.Log(_currentState.GetType().Name);
             _currentState?.UpdateState();
         }
 

@@ -12,7 +12,7 @@ namespace _Root.Code.EnemyFeature.EnemyState.State
         private Vector2[] _patrolPoints;
         private IMovable _movable;
         private readonly Transform _transform;
-        public event Func<EnemyState, IEnemyState> OnStateChange;
+        public event Func<EnemyState, IEnemyState> OnStateChange;   
 
         private int _currentPatrolPoint = -1;
         private PathfinderPresenter _pathfinderPresenter;
@@ -91,11 +91,6 @@ namespace _Root.Code.EnemyFeature.EnemyState.State
                 _pathQueue.Enqueue(_pathfinderPresenter.Model.GridToWorld(node));
 
             _isMoving = true;
-        }
-
-        private void StartPatrol()
-        {
-            
         }
     }
 }

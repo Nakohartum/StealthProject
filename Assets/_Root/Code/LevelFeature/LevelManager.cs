@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Root.Code.AStar.Debugger;
 using _Root.Code.AStar.Pathfinder;
 using _Root.Code.CutsceneFeature.Manager;
 using _Root.Code.LevelFeature;
@@ -22,6 +23,7 @@ namespace _Root.Code.GlobalManagers
         private IFactory<Transform, PlayerController> _playerFactory;
         private PathfinderPresenter _pathfinderPresenter;
         public event Action OnLevelLoaded;
+        [Inject] private GridDebugger _gridDebugger;
 
         [Inject]
         public LevelManager(Transform levelsRoot, LevelSO[] levels, CutsceneManager cutsceneManager, DiContainer container, IFactory<Transform, PlayerController> playerFactory, PathfinderPresenter pathfinderPresenter)
@@ -62,6 +64,7 @@ namespace _Root.Code.GlobalManagers
             var center = levelBounds.center;
             _pathfinderPresenter.GenerateGrid(size, center);
             _pathfinderPresenter.UpdateWalkable();
+            _gridDebugger.Initialize(_pathfinderPresenter.Model);
             OnLevelLoaded?.Invoke();
         }
     }

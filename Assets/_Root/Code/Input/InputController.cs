@@ -22,6 +22,7 @@ namespace _Root.Code.Input
             _deltaTime = deltaTime;
             EnablePlayerInput();
             DisableAnyKey();
+            DisablePlayerMove();
         }
 
         public void EnablePlayerInput()

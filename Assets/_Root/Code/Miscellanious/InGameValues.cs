@@ -7,4 +7,11 @@
         public static float CHASING_POINT_UPDATE_INTERVAL = 0.5f;
         public static float CHASING_POINT_UPDATE_DISTANCE = 0.5f;
     }
+
+    public static class SceneNames
+    {
+        public static string MainMenuScene = "MainMenuScene";
+        public static string FirstLevel = "FirstLevelScene";
+        public static string UIScene = "UIScene";
+    }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Root.Code.LevelManager;
 using _Root.Code.QuestFeature.Model;
 using _Root.Code.QuestFeature.View;
 using UnityEngine;
@@ -11,11 +10,11 @@ namespace _Root.Code.QuestFeature.Controller
     public class QuestManager
     {
         private List<QuestController> _activeQuests = new List<QuestController>();
-        private QuestView.QuestViewFactory _questViewFactory;
+        private IFactory<QuestView> _questViewFactory;
         private DiContainer _container;
         
         [Inject]
-        private QuestManager(QuestView.QuestViewFactory questViewFactory, DiContainer container)
+        private QuestManager(IFactory<QuestView> questViewFactory, DiContainer container)
         {
             _questViewFactory = questViewFactory;
             _container = container;

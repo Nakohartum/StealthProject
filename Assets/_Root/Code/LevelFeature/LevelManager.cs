@@ -1,71 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using _Root.Code.AStar.Debugger;
-using _Root.Code.AStar.Pathfinder;
-using _Root.Code.CutsceneFeature.Manager;
-using _Root.Code.LevelFeature;
-using _Root.Code.LevelManager;
+﻿using _Root.Code.Signals;
 using GameOne.Player;
 using UnityEngine;
 using Zenject;
-using Object = UnityEngine.Object;
 
-namespace _Root.Code.GlobalManagers
+namespace _Root.Code.LevelFeature
 {
-    public class LevelManager 
+    public class LevelManager
     {
-        private Transform _levelsRoot;
-        private LevelSO[] _levels;
-        public Level CurrentLevelObject {get; private set;}
-        private CutsceneManager _cutsceneManager;
-        private DiContainer _container;
-        private IFactory<Transform, PlayerController> _playerFactory;
-        private PathfinderPresenter _pathfinderPresenter;
-        public event Action OnLevelLoaded;
-        [Inject] private GridDebugger _gridDebugger;
+        private IFactory<Transform, PlayerView> _playerFactory;
 
-        [Inject]
-        public LevelManager(Transform levelsRoot, LevelSO[] levels, CutsceneManager cutsceneManager, DiContainer container, IFactory<Transform, PlayerController> playerFactory, PathfinderPresenter pathfinderPresenter)
+        private Level _currentLevel;
+
+        public void SetCurrentLevel()
         {
-            _levelsRoot = levelsRoot;
-            _levels = levels;
-            _cutsceneManager = cutsceneManager;
-            _container = container;
-            _playerFactory = playerFactory;
-            _pathfinderPresenter = pathfinderPresenter;
+            _currentLevel = Object.FindObjectOfType<Level>();
         }
 
-        private void DestroyLevel()
+        public void SpawnPlayer(string spawnPointName)
         {
-            Object.Destroy(CurrentLevelObject.gameObject);
+            var spawnPoint = _currentLevel.GetSpawnPoint(spawnPointName);
+            _playerFactory.Create(spawnPoint.transform);
         }
 
-        public void InitLevel(string levelName)
+        public void OnPlayerFactoryReady(PlayerFactoryCreatedSignal obj)
         {
-            if (CurrentLevelObject != null)
-            {
-                DestroyLevel();
-            }
-            var level = _levels.FirstOrDefault(q => q.LevelName == levelName);
-            if (level == null)
-            {
-                return;
-            }
-            CurrentLevelObject = _container.InstantiatePrefabForComponent<Level>(level.LevelObject, _levelsRoot);
-            _playerFactory.Create(CurrentLevelObject.PlayerSpawnPosition);
-            if (CurrentLevelObject.StartingCutsceneName != "")
-            {
-                _cutsceneManager.StartCutscene(CurrentLevelObject.StartingCutsceneName);
-            }
-
-            var levelBounds = CurrentLevelObject.GetLevelBounds();
-            var size = levelBounds.size;
-            var center = levelBounds.center;
-            _pathfinderPresenter.GenerateGrid(size, center);
-            _pathfinderPresenter.UpdateWalkable();
-            _gridDebugger.Initialize(_pathfinderPresenter.Model);
-            OnLevelLoaded?.Invoke();
+            _playerFactory = obj.PlayerFactory;
         }
     }
 }

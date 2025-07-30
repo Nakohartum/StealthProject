@@ -1,51 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Root.Code.CutsceneFeature.Manager;
-using _Root.Code.CutsceneFeature.Model;
-using _Root.Code.GlobalManagers;
-using _Root.Code.QuestFeature.Controller;
+using GameOne.Player;
 using UnityEngine;
 using Zenject;
 
-namespace _Root.Code.LevelManager
+namespace _Root.Code.LevelFeature
 {
     public class Level : MonoBehaviour
     {
-        [field: SerializeField] public AudioClip StartingLevelMusic { get; private set; }
-        [field: SerializeField] public string StartingCutsceneName { get; private set; }
-        [field: SerializeField] public Transform PlayerSpawnPosition { get; private set; }
-        public List<IDisposable> Disposables { get; private set; } = new();
+        public List<SpawnPoint> SpawnPoints = new List<SpawnPoint>();
+        
 
-        public void AddDisposable(IDisposable disposable)
+        public SpawnPoint GetSpawnPoint(string spawnPointName)
         {
-            Disposables.Add(disposable);
-        }
-
-        public void RemoveDisposable(IDisposable disposable)
-        {
-            Disposables.Remove(disposable);
-        }
-
-        private void OnDestroy()
-        {
-            foreach (var disposable in Disposables)
-            {
-                disposable.Dispose();
-            }
-        }
-
-        public Bounds GetLevelBounds()
-        {
-            var renderers = GetComponentsInChildren<Renderer>(true);
-            if (renderers.Length == 0)
-                return new Bounds(transform.position, Vector3.zero);
-            Bounds bounds = renderers[0].bounds;
-            foreach (var renderer in renderers)
-            {
-                bounds.Encapsulate(renderer.bounds);
-            }
-
-            return bounds;
+            return SpawnPoints.Find(spawnPoint => spawnPoint.ID == spawnPointName);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Root.Code.EnemyFeature.Enemy.EnemyPresenter;
 using _Root.Code.EnemyFeature.EnemyFOVFeature;
 using _Root.Code.EnemyFeature.EnemyState.State;
 using GameOne.Player;

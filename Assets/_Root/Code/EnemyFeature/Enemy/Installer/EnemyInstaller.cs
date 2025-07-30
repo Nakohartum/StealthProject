@@ -35,7 +35,7 @@ namespace _Root.Code.EnemyFeature.Enemy.Installer
                 }
             });
             var enemyFOV = new EnemyFOV(_enemySo.ViewRadius, _enemySo.ViewAngle, _enemySo.PlayerMask, _enemySo.ObstacleMask, go.transform, stateMachine);
-            Container.BindInterfacesAndSelfTo<EnemyPresenter.EnemyPresenter>().AsSingle().WithArguments(enemyModel, go, stateMachine, enemyFOV).NonLazy();
+            
         }
 
         private IMovable CreateMove(Rigidbody2D component, float speed)

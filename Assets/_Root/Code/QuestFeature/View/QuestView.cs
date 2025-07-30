@@ -10,8 +10,6 @@ namespace _Root.Code.QuestFeature.View
         public RectTransform QuestPartsContainer { get; private set; }
         [SerializeField] private TMP_Text _titleText;
 
-        public class QuestViewFactory : PlaceholderFactory<QuestView>{}
-
         public void SetTitle(string questModelName)
         {
             _titleText.text = questModelName;

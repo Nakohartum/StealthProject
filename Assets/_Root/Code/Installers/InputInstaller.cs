@@ -8,7 +8,7 @@ namespace _Root.Code.Installers
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<InputController>().AsSingle().WithArguments(Time.deltaTime).NonLazy();
+                Container.BindInterfacesAndSelfTo<InputController>().AsSingle().WithArguments(Time.deltaTime).NonLazy();
         }
     }
 }

@@ -2,7 +2,9 @@
 using _Root.Code.GlobalMusicFeature.GlobalMusicPresenter;
 using _Root.Code.MainMenuFeature.View;
 using _Root.Code.Miscellanious;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace _Root.Code.MainMenuFeature.Presenter
@@ -10,18 +12,20 @@ namespace _Root.Code.MainMenuFeature.Presenter
     public class MainMenuPresenter : IDisposable
     {
         private MainMenuView _view;
-        private GlobalManagers.LevelManager _levelManager;
         private GlobalMusicPresenter _globalMusicPresenter;
         private AudioClip _mainMenuMusic;
+        private LevelFeature.SceneManager _sceneManager;
         
-        public MainMenuPresenter(MainMenuView view, GlobalManagers.LevelManager levelManager, GlobalMusicPresenter globalMusicPresenter, AudioClip mainMenuMusic)
+        public MainMenuPresenter(MainMenuView view, GlobalMusicPresenter globalMusicPresenter, AudioClip mainMenuMusic, LevelFeature.SceneManager sceneManager)
         {
             _view = view;
-            _levelManager = levelManager;
+            _view.InitializeView(this);
             _globalMusicPresenter = globalMusicPresenter;
             _mainMenuMusic = mainMenuMusic;
+            _sceneManager = sceneManager;
             SubscribeToButtons();
             _globalMusicPresenter.StartMusic(_mainMenuMusic, true);
+            _sceneManager.SetCurrentScene(SceneNames.MainMenuScene);
         }
 
         private void SubscribeToButtons()
@@ -39,11 +43,11 @@ namespace _Root.Code.MainMenuFeature.Presenter
         }
 
         private void StartGame()
-        {
+        { 
             _globalMusicPresenter.StopMusic();
-            _levelManager.InitLevel(InGameValues.FIRST_LEVEL);
-            UnityEngine.Object.Destroy(_view.gameObject);
-            Dispose();
+            
+            _sceneManager.ChangeSceneAsync(SceneNames.FirstLevel, sceneMode: LoadSceneMode.Additive).Forget();
+            
         }
 
         public void Dispose()

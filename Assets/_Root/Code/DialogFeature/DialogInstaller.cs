@@ -10,10 +10,9 @@ namespace _Root.Code.DialogFeature
     public class DialogInstaller : MonoInstaller
     {
         [SerializeField] private DialogView _dialogViewPrefab;
-        [SerializeField] private Transform _root;
         public override void InstallBindings()
         {   
-            Container.Bind<IFactory<Dialog, DialogPresenter>>().To<DialogFactory>().AsSingle().WithArguments(_dialogViewPrefab, _root);
+            Container.BindInterfacesAndSelfTo<DialogFactory>().AsSingle().WithArguments(_dialogViewPrefab);
         }
     }
 }

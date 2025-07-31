@@ -24,14 +24,18 @@ namespace _Root.Code.EnemyFeature.Enemy.Installer
             var health = new Health.Health(_enemySo.Health.MaxHeatlh);
             var enemyModel = new EnemyModel.EnemyModel(health, _enemySo.Speed, _enemySo.RotationSpeed, go.transform.position);
             var move = CreateMove(go.GetComponent<Rigidbody2D>(), _enemySo.Speed);
-            var enemyFOV = new EnemyFOV(_enemySo.ViewRadius, _enemySo.ViewAngle, _enemySo.PlayerMask, _enemySo.ObstacleMask, go.transform);
+            
             var stateMachine = new EnemyStateMachine(new Dictionary<EnemyState.EnemyState, IEnemyState>
             {
                 { EnemyState.EnemyState.Patrolling , new PatrolState(_patrolPoints.Select(q => (Vector2)q.position).ToArray(), move, 
                     go.transform, _pathfinderPresenter)
+                },
+                {
+                    EnemyState.EnemyState.Chasing, new ChasingState(go.transform, 1.5f, 3f, move, _pathfinderPresenter)
                 }
             });
-            Container.BindInterfacesAndSelfTo<EnemyPresenter.EnemyPresenter>().AsSingle().WithArguments(enemyModel, go, stateMachine, enemyFOV).NonLazy();
+            var enemyFOV = new EnemyFOV(_enemySo.ViewRadius, _enemySo.ViewAngle, _enemySo.PlayerMask, _enemySo.ObstacleMask, go.transform, stateMachine);
+            
         }
 
         private IMovable CreateMove(Rigidbody2D component, float speed)

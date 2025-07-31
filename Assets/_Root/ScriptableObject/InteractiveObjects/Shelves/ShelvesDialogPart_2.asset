@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de28fb11b6e1420daa0d210370fe6456, type: 3}
   m_Name: ShelvesDialogPart_2
   m_EditorClassIdentifier: 
-  CharacterName: Player
-  DialogString: '"nj gbpltw'
-  CharacterIcon: {fileID: 21300000, guid: 04cedfabfa113a5478249f43a2779bf7, type: 3}
+  CharacterName: "\u041F\u043E\u043B\u043A\u0430 \u0441 \u043F\u043B\u0430\u0441\u0442\u0438\u043D\u043A\u0430\u043C\u0438"
+  DialogString: "\u044D\u0442\u043E \u0440\u0430\u0441\u0441\u043B\u0430\u0431\u0438\u0442\u044C\u0441\u044F
+    \u043F\u043E\u0441\u043B\u0443\u0448\u0438\u0432\u0430\u044F \u043B\u044E\u0431\u0438\u043C\u044B\u0435
+    \u043F\u043B\u0430\u0441\u0442\u0438\u043D\u043A\u0438, \u0441\u043C\u0430\u043A\u0443\u044F
+    \u0432\u0438\u0441\u043A\u0438"
+  CharacterIcon: {fileID: 21300000, guid: ea321a8e3a6d8c24f973f16b43f991d4, type: 3}

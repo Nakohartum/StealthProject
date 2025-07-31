@@ -16,18 +16,23 @@ namespace GameOne.Player
         private int _isWalkingHash;
         private PlayerSoundsPlayer _playerSoundsPlayer;
 
-        public PlayerController(PlayerView playerView, InputController inputController, 
-            PlayerModel playerModel, IMovable moveController)
+        public PlayerController(InputController inputController, 
+            PlayerModel playerModel)
         {
-            _playerView = playerView;
             _playerModel = playerModel;
             _inputController = inputController;
-            _moveController = moveController;
-            _playerSoundsPlayer = new PlayerSoundsPlayer(playerView.AudioSource, _playerModel.StepSounds);
             _isWalkingHash = Animator.StringToHash("IsWalking");
             _inputController.OnMove += MovePlayer;
             _inputController.OnMove += RotateTowardsMovingSide;
+        }
+
+        public void InitializePresenter(PlayerView playerView, IMovable moveController)
+        {
+            _playerView = playerView;
+            _moveController = moveController;
+            _playerSoundsPlayer = new PlayerSoundsPlayer(playerView.AudioSource, _playerModel.StepSounds);
             _playerView.OnStepSoundPlay += _playerSoundsPlayer.PlayRandomStepSound;
+            _inputController.EnablePlayerMove();
         }
 
         private void MovePlayer(Vector2 obj)

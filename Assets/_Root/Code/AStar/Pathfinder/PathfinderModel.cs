@@ -7,7 +7,7 @@ namespace _Root.Code.AStar.Pathfinder
     {
         public Grid.Grid Grid { get; private set; }
         private Vector3 _origin;
-        private float _cellSize;
+        public float CellSize;
         public int Width;
         public int Height;
         private LayerMask _layerMask;
@@ -16,7 +16,7 @@ namespace _Root.Code.AStar.Pathfinder
         {
             var centeredOrigin = origin - new Vector3(width * cellSize, height * cellSize, 0) * 0.5f;
             _origin = centeredOrigin;
-            _cellSize = cellSize;
+            CellSize = cellSize;
             Width = width;
             Height = height;
             _layerMask = layerMask;
@@ -25,13 +25,13 @@ namespace _Root.Code.AStar.Pathfinder
 
         public void GenerateGrid()
         {
-            Grid = new Grid.Grid(Width, Height,  _cellSize, _origin, _layerMask);
+            Grid = new Grid.Grid(Width, Height,  CellSize, _origin, _layerMask);
         }
         public void GenerateGrid(Vector3 size, Vector3 center)
         {
-            Width = Mathf.CeilToInt(size.x / _cellSize);
-            Height = Mathf.CeilToInt(size.y / _cellSize);
-            Grid = new Grid.Grid(Width, Height,  _cellSize, center, _layerMask);
+            Width = Mathf.CeilToInt(size.x / CellSize);
+            Height = Mathf.CeilToInt(size.y / CellSize);
+            Grid = new Grid.Grid(Width, Height,  CellSize, center, _layerMask);
         }
 
         public void UpdateGridWalkability()
@@ -40,8 +40,8 @@ namespace _Root.Code.AStar.Pathfinder
             {   
                 for (int y = 0; y < Height; y++)
                 {
-                    Vector3 worldPos = _origin + new Vector3(x * _cellSize, y * _cellSize, 0);
-                    var hit = Physics2D.OverlapCircle(worldPos, _cellSize * 0.4f, _layerMask);
+                    Vector3 worldPos = _origin + new Vector3(x * CellSize, y * CellSize, 0);
+                    var hit = Physics2D.OverlapCircle(worldPos, CellSize * 0.4f, _layerMask);
                     bool walkable = hit == null || hit.isTrigger;
                     Node node = Grid.GetNode(x, y);
                     node.IsWalkable = walkable;
@@ -53,8 +53,8 @@ namespace _Root.Code.AStar.Pathfinder
         public Vector3Int WorldToGrid(Vector3 worldPos)
         {
             var local = worldPos - _origin;
-            var x = Mathf.FloorToInt(local.x / _cellSize);
-            var y = Mathf.FloorToInt(local.y / _cellSize);
+            var x = Mathf.FloorToInt(local.x / CellSize);
+            var y = Mathf.FloorToInt(local.y / CellSize);
             return new Vector3Int(
                 x,
                 y,
@@ -63,7 +63,7 @@ namespace _Root.Code.AStar.Pathfinder
 
         public Vector3 GridToWorld(Node node)
         {
-            return _origin + new Vector3(node.X * _cellSize, node.Y * _cellSize);
+            return _origin + new Vector3(node.X * CellSize, node.Y * CellSize);
         }
     }
 }

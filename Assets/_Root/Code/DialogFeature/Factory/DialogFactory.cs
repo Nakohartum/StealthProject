@@ -16,17 +16,23 @@ namespace _Root.Code.DialogFeature.Factory
         private DiContainer _container;
         private Transform _root;
         private InputController _inputController;
-        public DialogFactory(DiContainer container, DialogView dialogViewPrefab, Transform root, InputController inputController)
+        public DialogFactory(DiContainer container, DialogView dialogViewPrefab, InputController inputController)
         {
             _container = container;
             _dialogViewPrefab = dialogViewPrefab;
-            _root = root;
             _inputController = inputController;
         }
+
+        public void SetRoot(Transform root)
+        {
+            _root = root;
+        }
+        
         public DialogPresenter Create(Dialog dialog)
         {
+            Debug.Log("Created dialog");
             var model = new DialogModel(dialog);
-            var view = _container.InstantiatePrefabForComponent<DialogView>(_dialogViewPrefab, _root);
+                var view = _container.InstantiatePrefabForComponent<DialogView>(_dialogViewPrefab, _root);
             var presenter = new DialogPresenter(view, model, _inputController);
             view.Initialize(presenter);
             return presenter;

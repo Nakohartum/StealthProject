@@ -69,7 +69,7 @@ namespace _Root.Code.AStar.Pathfinder
                 }
             }
 
-            return null;
+            return new List<Node>();
         }
 
         private int GetHeuristic(Node a, Node b)

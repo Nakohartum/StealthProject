@@ -1,4 +1,7 @@
-﻿using GameOne.Player;
+﻿using System;
+using _Root.Code.EnemyFeature.EnemyState;
+using Cysharp.Threading.Tasks;
+using GameOne.Player;
 using UnityEngine;
 
 namespace _Root.Code.EnemyFeature.EnemyFOVFeature
@@ -10,23 +13,21 @@ namespace _Root.Code.EnemyFeature.EnemyFOVFeature
         private LayerMask _viewMask;
         private LayerMask _obstacleMask;
         private Transform _transform;
-        
-        public PlayerView PlayerView { get; private set; }
-        public bool CanSeePlayer => PlayerView != null;
-
-        public EnemyFOV(float viewRadius, float viewAngle, LayerMask viewMask, LayerMask obstacleMask, Transform transform)
+        private EnemyStateMachine _enemyStateMachine;
+        private bool _hasSeenPlayerPreviously = false;
+        public EnemyFOV(float viewRadius, float viewAngle, LayerMask viewMask, LayerMask obstacleMask, Transform transform, EnemyStateMachine enemyStateMachine)
         {
             _viewRadius = viewRadius;
             _viewAngle = viewAngle;
             _viewMask = viewMask;
             _obstacleMask = obstacleMask;
             _transform = transform;
+            _enemyStateMachine = enemyStateMachine;
         }
 
         public void DetectPlayer()
         {
-            PlayerView = null;
-            
+            bool playerSeenThisFrame = false;
             Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(_transform.position, _viewRadius, _viewMask);
             foreach (var target in targetsInViewRadius)
             {
@@ -41,16 +42,21 @@ namespace _Root.Code.EnemyFeature.EnemyFOVFeature
                             _obstacleMask);
                         if (!hit)
                         {
-                            PlayerView = playerView;
+                            _enemyStateMachine.SetChasingState(playerView);
+                            playerSeenThisFrame = true;
+                            _hasSeenPlayerPreviously = playerSeenThisFrame;
+                            return;
                         }
                     }
                 }
             }
-        }
-
-        public void ResetDetectedPlayer()
-        {
-            PlayerView = null;
+            Debug.Log("Player seen this frame: " + playerSeenThisFrame);
+            Debug.Log("Player seen previously: " + _hasSeenPlayerPreviously);
+            if (!playerSeenThisFrame && _hasSeenPlayerPreviously)
+            {
+                _hasSeenPlayerPreviously = false;
+                _enemyStateMachine.SetChasingState(null);
+            }
         }
     }
 }

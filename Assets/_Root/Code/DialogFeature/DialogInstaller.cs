@@ -12,7 +12,7 @@ namespace _Root.Code.DialogFeature
         [SerializeField] private DialogView _dialogViewPrefab;
         public override void InstallBindings()
         {   
-            Container.Bind<IFactory<Dialog, DialogPresenter>>().To<DialogFactory>().AsSingle().WithArguments(_dialogViewPrefab);
+            Container.BindInterfacesAndSelfTo<DialogFactory>().AsSingle().WithArguments(_dialogViewPrefab);
         }
     }
 }

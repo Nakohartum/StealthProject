@@ -12,7 +12,7 @@ namespace _Root.Code.QuestFeature.Installers
 
         public override void InstallBindings()
         {
-            Container.Bind<IFactory<QuestView>>().To<QuestViewFactory>().AsSingle().WithArguments(_questViewPrefab);
+            Container.BindInterfacesAndSelfTo<QuestViewFactory>().AsSingle().WithArguments(_questViewPrefab);
 
             Container.BindFactory<QuestPartView, QuestPartView.QuestPartViewFactory>()
                 .FromComponentInNewPrefab(_questPartViewPrefab);

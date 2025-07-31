@@ -13,15 +13,10 @@ namespace _Root.Code.Bootstraps
         [SerializeField] private Transform _root;
         public override void InstallBindings()
         {
-             
+             Container.BindInterfacesAndSelfTo<DialogFactoryInitializer>().AsSingle().WithArguments(_root).NonLazy();
+             Container.BindInterfacesAndSelfTo<QuestFactoryInitializer>().AsSingle().WithArguments(_root).NonLazy();
         }
 
-        public override void Start()
-        {
-            var dialogFactory = Container.Resolve<IFactory<Dialog, DialogPresenter>>() as DialogFactory;
-            var questViewfactory = Container.Resolve<IFactory<QuestView>>() as QuestViewFactory;
-            dialogFactory.SetRoot(_root);
-            questViewfactory.SetRoot(_root);
-        }
+        
     }
 }

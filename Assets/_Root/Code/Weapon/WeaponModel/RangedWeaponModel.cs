@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using GameOne.Weapon;
 using UnityEngine;
 
-namespace GameOne.Weapon.WeaponModel
+namespace _Root.Code.Weapon.WeaponModel
 {
-    public class StrikeWeaponModel
+    public class RangedWeaponModel : IAttack
     {
         public AudioClip[] FireSounds { get; set; }
 
@@ -12,11 +11,16 @@ namespace GameOne.Weapon.WeaponModel
 
         public float Damage { get; set; }
 
-        public StrikeWeaponModel(AudioClip[] fireSounds, float ammoQuantity, float damage)
+        public RangedWeaponModel(AudioClip[] fireSounds, float ammoQuantity, float damage)
         {
             FireSounds = fireSounds;
             AmmoQuantity = ammoQuantity;
             Damage = damage;
+        }
+
+        public void Attack()
+        {
+            AmmoQuantity -= 1;
         }
     }
 }

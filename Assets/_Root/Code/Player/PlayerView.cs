@@ -16,6 +16,6 @@ namespace GameOne.Player
         public void PlaySound()
         {
             OnStepSoundPlay();
-        }
+        }   
     }
 }

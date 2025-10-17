@@ -1,0 +1,18 @@
+{
+    "name": "Dialog.Application",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0c939a3cfc63ca1449a7ce16e52bd409",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:809dc2654abff2d41b2ada026953806e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

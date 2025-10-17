@@ -24,9 +24,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "AnyKey",
+                    "name": "ToggleStealth",
                     "type": "Button",
-                    "id": "5d0655a0-a6ac-4ebd-a29a-cc1bb391fe42",
+                    "id": "3b16cdd1-01cc-40fb-9bb2-cd61b3d6c8a0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -102,12 +102,40 @@
                 },
                 {
                     "name": "",
-                    "id": "c84e2cdb-2405-4e91-8123-3fade9492d5b",
-                    "path": "<Keyboard>/anyKey",
+                    "id": "c44e2fee-8797-462a-8cb9-55ae5cf6f60a",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AnyKey",
+                    "action": "ToggleStealth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "DialogInput",
+            "id": "0bac8b1a-edb4-41be-a9b3-f32913d2ed67",
+            "actions": [
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "8a1abc89-17af-471b-8708-8624b411e977",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f99b3273-6672-450b-8a55-6d2e5b35d83b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

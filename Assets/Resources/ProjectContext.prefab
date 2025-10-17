@@ -47,15 +47,12 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers: []
   _installerPrefabs:
-  - {fileID: 5048271252433656754, guid: 3584935385f43ca4a8c40ad1018415df, type: 3}
-  - {fileID: 8594518209026360405, guid: 860f915a660505b4c839d13054409dc8, type: 3}
-  - {fileID: 6683875422925403053, guid: 2ba57ccfea4a2eb4d924e4aba2eb356c, type: 3}
-  - {fileID: -7978879429984636952, guid: d6edf44af3a02094fa19516e4ad0386e, type: 3}
-  - {fileID: 901266613054261173, guid: a1c6dce6f6cb78943a80a50bb97ba86d, type: 3}
-  - {fileID: -2306858908001703023, guid: 7370107b16f071d488e9a5289e44d721, type: 3}
-  - {fileID: 7482562172714520765, guid: a79fba6d25a6cdb4baf5d3f0ef802094, type: 3}
-  - {fileID: 8451403654240665410, guid: a2505d478d4fbe94aa2c757ea54e64f2, type: 3}
-  - {fileID: -2562133779106375833, guid: a38f59fcc50491142b4ec6cedbc03591, type: 3}
+  - {fileID: -4652672187230605835, guid: 995139a99a8f12b4c84969a77562bee4, type: 3}
+  - {fileID: -84108172530064935, guid: 860f915a660505b4c839d13054409dc8, type: 3}
+  - {fileID: 1355939433089240504, guid: 6ab17658e62f68f4cae0587d29e91676, type: 3}
+  - {fileID: 4455448230726267439, guid: a79fba6d25a6cdb4baf5d3f0ef802094, type: 3}
+  - {fileID: 2651953005525161260, guid: a2505d478d4fbe94aa2c757ea54e64f2, type: 3}
+  - {fileID: 3483235890888770613, guid: 3584935385f43ca4a8c40ad1018415df, type: 3}
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
   _buildsReflectionBakingCoverageMode: 0

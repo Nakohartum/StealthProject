@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8983308899712799113}
-  - component: {fileID: 8451403654240665410}
+  - component: {fileID: 2651953005525161260}
   m_Layer: 0
   m_Name: QuestContext
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8451403654240665410
+--- !u!114 &2651953005525161260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4796669869570764603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a102eaa81114a8a8b09c2259fe88210, type: 3}
+  m_Script: {fileID: 11500000, guid: e4c9a5547e0746188a90ccf9c6504ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questViewPrefab: {fileID: 1230610534239334878, guid: 6b49c3029316df54caac92e95665e25f, type: 3}
-  _questPartViewPrefab: {fileID: 587791511915855373, guid: 8660da27871220e469c2db0d122d995b, type: 3}
+  _questConfigs:
+  - {fileID: 11400000, guid: abc65ec23e148f7499e1d27a9671e936, type: 2}

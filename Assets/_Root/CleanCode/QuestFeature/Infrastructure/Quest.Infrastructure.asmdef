@@ -1,0 +1,19 @@
+{
+    "name": "Quest.Infrastructure",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0c939a3cfc63ca1449a7ce16e52bd409",
+        "GUID:bd5deb28d7b7369469827a6bdbadc602",
+        "GUID:e4d8442d8e472214aa0ddc53452fdfe7",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

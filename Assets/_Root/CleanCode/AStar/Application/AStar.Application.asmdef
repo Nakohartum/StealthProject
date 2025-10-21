@@ -1,0 +1,17 @@
+{
+    "name": "AStar.Application",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0c939a3cfc63ca1449a7ce16e52bd409",
+        "GUID:cc701368af1da2147b70bdbd82b83344"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

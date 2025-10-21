@@ -1,0 +1,17 @@
+{
+    "name": "Quest.Application",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0c939a3cfc63ca1449a7ce16e52bd409",
+        "GUID:bd5deb28d7b7369469827a6bdbadc602"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

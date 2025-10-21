@@ -1,0 +1,17 @@
+{
+    "name": "Interactable.Application",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f6c34a6a2e2968247bd4456e23618566",
+        "GUID:0c939a3cfc63ca1449a7ce16e52bd409"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

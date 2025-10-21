@@ -1,0 +1,16 @@
+{
+    "name": "Interactable.Domain",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0c939a3cfc63ca1449a7ce16e52bd409"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

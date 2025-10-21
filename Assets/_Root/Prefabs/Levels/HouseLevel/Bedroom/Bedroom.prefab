@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1583119522422670130}
-  - component: {fileID: 3076001225471430978}
-  - component: {fileID: 663708707026759988}
   - component: {fileID: 3354840863907551453}
   - component: {fileID: 5521174424848557104}
+  - component: {fileID: 7061364489062001061}
+  - component: {fileID: 7937370655837456813}
   m_Layer: 0
   m_Name: Bedroom
   m_TagString: Untagged
@@ -41,32 +41,6 @@ Transform:
   - {fileID: 3396939033663884380}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3076001225471430978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752439288324477072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a567272a8478492ab63d5899e3b583fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &663708707026759988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752439288324477072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e28a437605b4a919358a39ac3378f86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _roomView: {fileID: 3076001225471430978}
-  _fogOfWar: {fileID: 3062821429413301134}
 --- !u!114 &3354840863907551453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 663708707026759988}
+  - {fileID: 7937370655837456813}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
@@ -130,6 +104,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.7496758, y: 3.8613608}
   m_EdgeRadius: 0
+--- !u!114 &7061364489062001061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752439288324477072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fabe3d18a44a83a7538a617454dcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7937370655837456813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752439288324477072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69fabfe9227848a08035a22e913687ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roomAdapter: {fileID: 7061364489062001061}
 --- !u!1 &4922346184200604029
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3396939033663884380}
   - component: {fileID: 4464105439034634152}
-  - component: {fileID: 3062821429413301134}
   m_Layer: 0
   m_Name: Fog
   m_TagString: Untagged
@@ -247,18 +245,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3062821429413301134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911169432258283415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da59b526fb6846f78ee152cde40a1820, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2607877983893073556
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,0 +1,19 @@
+{
+    "name": "Level.Infrastructure",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0c939a3cfc63ca1449a7ce16e52bd409",
+        "GUID:0dbabdc834201ca4096d10b6690dbe02",
+        "GUID:cbf98a15906691842b76eadc7a1c01ed",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

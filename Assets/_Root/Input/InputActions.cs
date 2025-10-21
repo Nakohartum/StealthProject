@@ -46,9 +46,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""AnyKey"",
+                    ""name"": ""ToggleStealth"",
                     ""type"": ""Button"",
-                    ""id"": ""5d0655a0-a6ac-4ebd-a29a-cc1bb391fe42"",
+                    ""id"": ""3b16cdd1-01cc-40fb-9bb2-cd61b3d6c8a0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -124,12 +124,40 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c84e2cdb-2405-4e91-8123-3fade9492d5b"",
-                    ""path"": ""<Keyboard>/anyKey"",
+                    ""id"": ""c44e2fee-8797-462a-8cb9-55ae5cf6f60a"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AnyKey"",
+                    ""action"": ""ToggleStealth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""DialogInput"",
+            ""id"": ""0bac8b1a-edb4-41be-a9b3-f32913d2ed67"",
+            ""actions"": [
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a1abc89-17af-471b-8708-8624b411e977"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f99b3273-6672-450b-8a55-6d2e5b35d83b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -154,7 +182,10 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
         m_PlayerMovement_Move = m_PlayerMovement.FindAction("Move", throwIfNotFound: true);
         m_PlayerMovement_Interact = m_PlayerMovement.FindAction("Interact", throwIfNotFound: true);
-        m_PlayerMovement_AnyKey = m_PlayerMovement.FindAction("AnyKey", throwIfNotFound: true);
+        m_PlayerMovement_ToggleStealth = m_PlayerMovement.FindAction("ToggleStealth", throwIfNotFound: true);
+        // DialogInput
+        m_DialogInput = asset.FindActionMap("DialogInput", throwIfNotFound: true);
+        m_DialogInput_Skip = m_DialogInput.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -218,14 +249,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private List<IPlayerMovementActions> m_PlayerMovementActionsCallbackInterfaces = new List<IPlayerMovementActions>();
     private readonly InputAction m_PlayerMovement_Move;
     private readonly InputAction m_PlayerMovement_Interact;
-    private readonly InputAction m_PlayerMovement_AnyKey;
+    private readonly InputAction m_PlayerMovement_ToggleStealth;
     public struct PlayerMovementActions
     {
         private @InputActions m_Wrapper;
         public PlayerMovementActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerMovement_Move;
         public InputAction @Interact => m_Wrapper.m_PlayerMovement_Interact;
-        public InputAction @AnyKey => m_Wrapper.m_PlayerMovement_AnyKey;
+        public InputAction @ToggleStealth => m_Wrapper.m_PlayerMovement_ToggleStealth;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -241,9 +272,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @AnyKey.started += instance.OnAnyKey;
-            @AnyKey.performed += instance.OnAnyKey;
-            @AnyKey.canceled += instance.OnAnyKey;
+            @ToggleStealth.started += instance.OnToggleStealth;
+            @ToggleStealth.performed += instance.OnToggleStealth;
+            @ToggleStealth.canceled += instance.OnToggleStealth;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -254,9 +285,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @AnyKey.started -= instance.OnAnyKey;
-            @AnyKey.performed -= instance.OnAnyKey;
-            @AnyKey.canceled -= instance.OnAnyKey;
+            @ToggleStealth.started -= instance.OnToggleStealth;
+            @ToggleStealth.performed -= instance.OnToggleStealth;
+            @ToggleStealth.canceled -= instance.OnToggleStealth;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -274,6 +305,52 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+
+    // DialogInput
+    private readonly InputActionMap m_DialogInput;
+    private List<IDialogInputActions> m_DialogInputActionsCallbackInterfaces = new List<IDialogInputActions>();
+    private readonly InputAction m_DialogInput_Skip;
+    public struct DialogInputActions
+    {
+        private @InputActions m_Wrapper;
+        public DialogInputActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Skip => m_Wrapper.m_DialogInput_Skip;
+        public InputActionMap Get() { return m_Wrapper.m_DialogInput; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogInputActions set) { return set.Get(); }
+        public void AddCallbacks(IDialogInputActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DialogInputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DialogInputActionsCallbackInterfaces.Add(instance);
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
+        }
+
+        private void UnregisterCallbacks(IDialogInputActions instance)
+        {
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
+        }
+
+        public void RemoveCallbacks(IDialogInputActions instance)
+        {
+            if (m_Wrapper.m_DialogInputActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDialogInputActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DialogInputActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DialogInputActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DialogInputActions @DialogInput => new DialogInputActions(this);
     private int m_PCSchemeIndex = -1;
     public InputControlScheme PCScheme
     {
@@ -287,6 +364,10 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnAnyKey(InputAction.CallbackContext context);
+        void OnToggleStealth(InputAction.CallbackContext context);
+    }
+    public interface IDialogInputActions
+    {
+        void OnSkip(InputAction.CallbackContext context);
     }
 }
